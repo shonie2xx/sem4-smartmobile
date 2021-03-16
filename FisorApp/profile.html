@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/profile.css">
-    <title>Profile</title>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel='stylesheet' href="./css/profile.css">
+  <link rel='stylesheet' href="./css/all.min.css">
 </head>
 <body>
-    <div>
-        <div class = "container">
-            <h1>Biography</h1>
-            <p> 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Voluptatibus ullam illum alias libero facere perferendis 
-                perspiciatis ipsum quaerat nobis iste dolorum voluptates ex 
-                provident quis quibusdam, distinctio expedita sunt veniam.
-            </p>
-        </div>
-    </div>
-
-    <div>
-        <div style="background-color: green;" class="container">
-            <p>The quick brown fox jumps over the lazy dog</p>
-        </div>
-    </div>
+<!-- Profile Edit Begin-->
+<div class="profile-container">
+	<form action="" class="form-profile">
+		<ul class="profile-nav">
+			<li class="profile-nav__item active">
+				<a href="#">Profile</a>
+			</li>
+            <i class="fas fa-cog"></i>
+		</ul>
+        <img class="profile-picture" src="./images/picture.jpg">
+        <i class="far fa-edit"></i>
+        <h1 class="profile__title">John Hill</h1>
+        <p class="profile__subtitle">jhill@gmail.com</p>
+        <a class="card">
+          <h3 class="card__title">Biography</h3>
+            <p class="card__meta">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+            </p></a>
+        <ol class="cards">
+            <li><a class="card" href="#">
+            <h4 class="card__titleButton">Reviews</h4>
+                <p class="card__meta">
+                <i class="far fa-star"></i>
+                </p></a></li>
+            <li><a class="card" href="#">
+          <h4 class="card__titleButton">Favorites</h4>
+          <p class="card__meta">
+          <i class="fas fa-heart"></i>
+          </p></a></li>
+        </ol>
+  </div>
+	</form>
+</div>
+<!-- Profile Edit End -->
 </body>
 </html>
