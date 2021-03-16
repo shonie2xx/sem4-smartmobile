@@ -11,18 +11,18 @@ body {
 	transition: .25s all ease;
 }
 
-.profile-container {
+.register-container {
 	display: block;
 	position: relative;
 	z-index: 0;
 	margin: 4rem auto 0;
   padding: 5rem 4rem 0 4rem;
 	width: 100%;
-	max-width: 755px;
-	min-height: 835px;
+	max-width: 525px;
+	min-height: 865px;
 }
 
-.profile-container:after {
+.register-container:after {
 	content: '';
 	display: inline-block;
 	position: absolute;
@@ -35,24 +35,25 @@ body {
 	box-shadow: 0 -20px 150px -20px rgba(158, 158, 168, 0.5);
 }
 
-.form-profile {
+.form-register {
 	position: relative;
 	z-index: 1;
   padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(68, 65, 254, 0.25);
 }
 
-.profile-nav {
+.register-nav {
 	position: relative;
 	padding: 0;
-	margin: 0 0 6em 15rem;
+	margin: 0 0 6em 5rem;
 }
 
-.profile-nav__item {
+.register-nav__item {
 	list-style: none;
 	display: inline-block;
 }
 
-.profile-nav__item a {
+.register-nav__item a {
 	position: relative;
 	color: rgba(68, 65, 254);
 	text-decoration: none;
@@ -63,38 +64,38 @@ body {
 	transition: .20s all ease;
 }
 
-.profile-nav__item.active a {
+.register-nav__item.active a {
 	color: rgba(68, 65, 254);
 	transition: .15s all ease;
 }
 
-.profile-nav__item a:after {
+.register-nav__item a:after {
 	content: '';
   display: inline-block;
   position: absolute;
   left: 0;
 }
 
-.profile-nav__item.active a:after{
+.register-nav__item.active a:after{
 	background-color: rgb(68, 65, 254);
 	height: 2px;
 	right: 0;
 	bottom: 2px;
 }
 
-.profile__label {
+.register__label {
 	display: block;
 	padding-left: 1rem;
 }
 
-.profile__label {
+.register__label {
 	color: rgb(0, 0, 0);
 	text-transform: uppercase;
 	font-size: .75rem;
 	margin-bottom: 1rem;
 }
 
-.profile__input {
+.register__input {
 	color: rgb(0, 0, 0);
 	font-size: 1.15rem;
 	width: 100%;
@@ -106,19 +107,19 @@ body {
 	letter-spacing: 1px;
 }
 
-.profile__input:hover,
-.profile__input:focus{
+.register__input:hover,
+.register__input:focus{
 	color: rgb(41, 37, 241);
 	border: 2px solid rgba(68, 65, 254, 0.5);
 	background-color: transparent;
 }
 
-.profile__input + .profile__label {
+.register__input + .register__label {
 	margin-top: 2rem;
 }
 
 
-.profile__submit {
+.register__submit {
 	color: #ffffff;
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -133,88 +134,36 @@ body {
 	cursor: pointer;
 }
 
-.profile__submit:hover {
+.register__submit:hover {
 	background-color: rgba(17, 97, 237, .75);
 }
 
-.profile-picture {
-	margin-left:auto;
-	margin-right: auto;
-	margin-top: 0rem;
-	margin-bottom: 1.5em;
-	width: 20%;
-	border-radius: 50px;
+.register {
 	display: block;
-  }
-
-  i {
-	  font-size: 25px;
-	  float: right;   
-  }
-
-
-
-
-
-
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-.material-icons {
-	font-family: 'Material Icons';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;  /* Preferred icon size */
-	display: inline-block;
-	line-height: 1;
-	text-transform: none;
-	letter-spacing: normal;
-	word-wrap: normal;
-	white-space: nowrap;
-	direction: ltr;
-  
-	/* Support for all WebKit browsers. */
-	-webkit-font-smoothing: antialiased;
-	/* Support for Safari and Chrome. */
-	text-rendering: optimizeLegibility;
-  
-	/* Support for Firefox. */
-	-moz-osx-font-smoothing: grayscale;
-  
-	/* Support for IE. */
-	font-feature-settings: 'liga';
-  }
-
-  /* navbar */
-.navbar {
-	padding: 10px 20px;
-	display: flex;
-	width: 100%;
-	align-items: center;
+	margin-top: 1.5rem;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.75);
+	font-size: .75rem;
+	text-decoration: none;
+	position: relative;
+	z-index: 1;
 }
 
-.mobile-buttons{
-	display:none;
+.register:hover {
+	color: rgb(68, 65, 254);
 }
-@media only screen and (max-width: 800px){
-	.navbar .desktop-buttons {
-		display:none;
-	}
-	.mobile-buttons{
-		display:block;
-		color:#848282;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		width: 100%;
-		padding: 10px;
-	}
-	.mobile-buttons span {
-		font-size: 30px;
-	}
-	.mobile-buttons li:hover span {
-		color:#4441FE;
-	}
+
+.home {
+	display: block;
+	margin-top: 1.5rem;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.75);
+	font-size: .75rem;
+	text-decoration: none;
+	position: relative;
+	z-index: 1;
+}
+
+.home:hover {
+	color: rgb(68, 65, 254);
 }

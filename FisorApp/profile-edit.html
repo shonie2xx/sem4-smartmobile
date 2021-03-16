@@ -3,14 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Profile Editing</title>
-  <link rel='stylesheet' href="./css/profile.css">
-
+  <link rel='stylesheet' href="./css/profile-edit.css">
+  <link rel='stylesheet' href="./css/all.min.css">
 </head>
 <body>
 <!-- Profile Edit Begin-->
-<h1>Edit Profile</h1>
-
-
+<div class="profile-container">
+	<form action="" class="form-profile">
+		<ul class="profile-nav">
+			<li class="profile-nav__item active">
+				<a href="#">Edit Profile</a>
+			</li>
+    <i class="fas fa-cog"></i>
+		</ul>
+    <img class="profile-picture" src="./images/picture.jpg">
+		<label for="profile-input-user" class="profile__label">
+			Firstname
+		</label>
+		<input id="profile-input-user" class="profile__input" type="text" placeholder="Firstname" />
+    <label for="profile-input-user" class="profile__label">
+			Lastname
+		</label>
+		<input id="profile-input-user" class="profile__input" type="text" placeholder="Lastname" />
+    <label for="profile-input-user" class="profile__label">
+			Email
+		</label>
+		<input id="profile-input-user" class="profile__input" type="text" placeholder="Email" />
+		<button class="profile__submit">
+			Update
+		</button>
+	</form>
+</div>
+<!-- Profile Edit End -->
 
   <nav class="navbar">
 
@@ -23,7 +47,6 @@
   </nav>
 
 
-<!-- Profile Edit End -->
   
 </body>
 </html>
