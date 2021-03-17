@@ -22,7 +22,7 @@ body {
 .advisor {
     display:flex;
     background-color: #4441FE;
-    margin:10px;
+    margin-bottom:10px;
     border-radius: 13px;
     color: white;
     display: flex;
