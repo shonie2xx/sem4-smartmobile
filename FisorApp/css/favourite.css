@@ -1,3 +1,4 @@
+
 body {
     padding:0;
     margin:0;
@@ -14,7 +15,7 @@ body {
     display: flex;
     flex-direction:column;
     justify-content: center;
-    width:90vw;
+    width:95vw;
     max-width: 700px;
 }
 
@@ -26,23 +27,25 @@ body {
     color: white;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    overflow:hidden;
+    height: 120px;
 }
 
 .img-container {
-    height: 100%;
-    overflow:inherit;
+    width: 60%;
+    max-width: 120px;
 }
 
 .img-container img {
     object-fit: cover;
-    height: 100%;
-    max-width: 100px;
+    height:120px;
 }
 .advisor-information-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     width: 100%;
+    padding: 5px;
 }
 
 .advisor-information {
@@ -62,7 +65,7 @@ body {
 .advisor-information-text h1 {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-size: 15px;
+    font-size: 10px;
     padding: 3px;
 }
 .advisor-information-text p {
@@ -70,7 +73,7 @@ body {
     margin-bottom: 0px;
     padding-left: 2px;
     padding-right: 2px;
-    font-size: 10px;
+    font-size: 9px;
 }
 .advisor-information-experience {
     display: flex;
@@ -83,7 +86,7 @@ body {
 }
 
 .advisor-information-experience::-webkit-scrollbar {
-    display: none;
+    display:none;
 }
 
 .advisor-information-experience h6 {
@@ -95,7 +98,7 @@ body {
     border-radius: 13px;
     padding-left: 3px;
     padding-right: 3px;
-    font-size:10px;
+    font-size:7.5px;
     text-align: center;
 }
 
@@ -113,11 +116,11 @@ body {
 }
 
 .advisor-information-metrics div h4 {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .advisor-information-metrics div h6 {
-    font-size: 9px;
+    font-size: 8px;
 }
 
 /* .metrics-price h4 {
