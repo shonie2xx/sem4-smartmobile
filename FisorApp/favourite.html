@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,27 +12,29 @@
     <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
     <title>Try again</title>
 </head>
+
 <body>
 
     <!-- Header -->
   <nav class="navbar">
     <h1 class="logo">Fisor</h1>
     <ul class="desktop-buttons">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Search</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Search</a></li>
       <li><a href="#">Calendar</a></li>
-      <li><a href="#">MyProfile</a></li>
+      <li><a href="profile.html">MyProfile</a></li>
     </ul>
     <ul class="mobile-buttons">
-      <li><span class="material-icons">home</li>
-      <li><span class="material-icons">search</span></li>
-      <li><span class="material-icons">calendar_today</span></li>
-      <li><span class="material-icons">account_circle</span></li>
+      <li><span onclick="location.href='index.html'" class="fa fa-home" ></li></a>
+      <li><span onclick="location.href='search.html'" class="fa fa-search"></span></li>
+      <li><span class="fa fa-calendar"></span></li>
+      <li><span onclick="location.href='profile.html'"  class="fa fa-user"></span></li>
     </ul>
   </nav>
   <!-- Header/> -->
 
-    <div class="container">
+    <div class="advisor-container">
+
         <div class="advisor">
             <div class="img-container">
                 <img src="images/thispersondoesnotexist.png" alt="profile picture">
@@ -39,59 +42,84 @@
             <div class="advisor-information-container">
                 <div class="advisor-information">
                     <div class="advisor-information-text">
-                        <div class="icon">
+                        <div class="icon"></div>
                             <i class="fas fa-arrow-right"></i>
                         </div>
-                    <h1>John Die</h1>
-                    <p>My dream is to eventually help
-                        guide someone on their journey to
-                        10 million dollars. 
-                    </p>
+                        <h1>John Die</h1>
+                        <p>My dream is to eventually help
+                            guide someone on their journey to
+                            10 million dollars.
+                        </p>
                     </div>
                     <div class="advisor-information-experience">
-                        <div class="experience-bubbles"><h6>VC</h4></div>
-                        <div class="experience-bubbles"><h6>Personal Finance</h4></div>
+                        <div class="experience-bubbles">
+                            <h6>VC</h4>
+                        </div>
+                        <div class="experience-bubbles">
+                            <h6>Personal Finance</h4>
+                        </div>
                     </div>
                     <div class="advisor-information-metrics">
-                        <div class = "metrics-price"><h4>Price</h5><h6>$76</h6></div>
-                        <div class = "metrics-rating"><h4>Rating</h5><h6>5/10</h6></div>
-                        <div class = "metrics-sessions"><h4>Sessions</h5><h6>2023</h6></div>
+                        <div class="metrics-price">
+                            <h4>Price</h5>
+                                <h6>$76</h6>
+                        </div>
+                        <div class="metrics-rating">
+                            <h4>Rating</h5>
+                                <h6>5/10</h6>
+                        </div>
+                        <div class="metrics-sessions">
+                            <h4>Sessions</h5>
+                                <h6>2023</h6>
+                        </div>
                     </div>
                 </div>
             </div>
-           
         </div>
-        <div class="container">
-            <div class="advisor">
-                <div class="img-container">
-                    <img src="images/thispersondoesnotexist.png" alt="profile picture">
-                </div>
-                <div class="advisor-information-container">
-                    <div class="advisor-information">
-                        <div class="advisor-information-text">
-                            <div class="iconheart">
-                                <i class="fas fa-heart"></i>
-                            </div>
+
+        <div class="advisor">
+            <div class="img-container">
+                <img src="images/thispersondoesnotexist.png" alt="profile picture">
+            </div>
+            <div class="advisor-information-container">
+                <div class="advisor-information">
+                    <div class="advisor-information-text">
+                        <div class="line-1">
                             <h1>John Die</h1>
-                            <p>My dream is to eventually help
-                                guide someone on their journey to
-                                10 million dollars. 
-                            </p>
+                            <i style="color:red" class="fas fa-heart"></i>
                         </div>
-                        <div class="advisor-information-experience">
-                            <div class="experience-bubbles"><h6>VC</h4></div>
-                            <div class="experience-bubbles"><h6>Personal Finance</h4></div>
+                        <p>My dream is to eventually help
+                            guide someone on their journey to
+                            10 million dollars.
+                        </p>
+                    </div>
+                    <div class="advisor-information-experience">
+                        <div class="experience-bubbles">
+                            <h6>VC</h4>
                         </div>
-                        <div class="advisor-information-metrics">
-                            <div class = "metrics-price"><h4>Price</h5><h6>$76/hour</h6></div>
-                            <div class = "metrics-rating"><h4>Rating</h5><h6>5/10</h6></div>
-                            <div class = "metrics-sessions"><h4>Sessions</h5><h6>2023</h6></div>
+                        <div class="experience-bubbles">
+                            <h6>Personal Finance</h4>
+                        </div>
+                    </div>
+                    <div class="advisor-information-metrics">
+                        <div class="metrics-price">
+                            <h4>Price</h5>
+                                <h6>$76/hour</h6>
+                        </div>
+                        <div class="metrics-rating">
+                            <h4>Rating</h5>
+                                <h6>5/10</h6>
+                        </div>
+                        <div class="metrics-sessions">
+                            <h4>Sessions</h5>
+                                <h6>2023</h6>
                         </div>
                     </div>
                 </div>
-               
             </div>
+        </div>
+
     </div>
-    
 </body>
+
 </html>

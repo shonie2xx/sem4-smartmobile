@@ -1,22 +1,20 @@
 
-body {
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-    display:flex;
-    justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    overflow: hidden;
-}
-/* * {
-    border:dotted;
-} */
-.container {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #f3f6f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+.advisor-container {
     display: flex;
     flex-direction:column;
     justify-content: center;
-    width:95vw;
-    max-width: 700px;
+   
 }
 
 .advisor {
@@ -55,6 +53,9 @@ body {
 
 .advisor-information div {
     padding: 2px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .advisor-information-text {
@@ -129,25 +130,36 @@ body {
     justify-content: flex-end;
 }
 
-.iconheart {
+/* .iconheart {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     color: red;
-}
-
-
-/* .metrics-price h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.metrics-rating h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.metrics-sessions h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
 } */
+
+
+/* .metrics-price {
+    display: flow-root;
+}
+
+.metrics-rating {
+    display: flow-root;
+}
+
+.metrics-session {
+    display: flow-root;
+}  */
+
+/* 
+
+.img-container img {
+    object-fit: cover;
+    height: auto;
+    height: 100px;
+    width: 60%;
+    justify-content: normal;
+    margin: auto;
+}
+
+
+ */
