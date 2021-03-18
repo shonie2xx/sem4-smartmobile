@@ -1,23 +1,120 @@
-
 body {
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-    display:flex;
-    justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    overflow: hidden;
+	background-color: #e9e9e9;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: 1px;
 }
-/* * {
-    border:dotted;
-} */
-.container {
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    width:95vw;
-    max-width: 700px;
+
+* {
+	box-sizing: border-box;
+	transition: .25s all ease;
 }
+
+.result-container {
+	display: block;
+	position: relative;
+	z-index: 0;
+	margin: 4rem auto 0;
+  padding: 5rem 4rem 0 4rem;
+	width: 100%;
+	max-width: 525px;
+	min-height: 865px;
+}
+
+.result-container:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: rgba(199, 199, 204);
+	box-shadow: 0 -20px 150px -20px rgba(158, 158, 168, 0.5);
+}
+
+.result-nav {
+	position: relative;
+	padding: 0;
+	margin: 0 0 6em 10rem;
+}
+
+.result-nav__item {
+	list-style: none;
+	display: inline-block;
+}
+
+.result-nav__item a {
+	position: relative;
+	color: rgba(68, 65, 254);
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 1.25rem;
+	padding-bottom: .5rem;
+	transition: .20s all ease;
+}
+
+.result-nav__item.active a {
+	color: rgba(68, 65, 254);
+	transition: .15s all ease;
+}
+
+.result-nav__item a:after {
+	content: '';
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.result-nav__item.active a:after{
+	background-color: rgb(68, 65, 254);
+	height: 2px;
+	right: 0;
+	bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+header {
+	height: 100%;
+}
+
+header input, header button {
+	padding: 10px;
+}
+
+header input {
+	border-radius: 75px;
+	display: block;
+	margin: 18px auto;
+	font-size: 14pt;
+	width: 500px;
+	max-width: 100%;
+}
+
+header button {
+	width: 147px;
+	font-size: 7pt;
+	letter-spacing: 1pt;
+	border-radius: 5rem;
+	cursor: pointer;
+	background: rgba(68, 65, 254);;
+	color: rgb(255, 255, 255);
+	transition: 500ms all ease;
+	margin: 3px 2px;
+}
+
+/* CARD */
 
 .advisor {
     display:flex;
@@ -54,7 +151,7 @@ body {
 }
 
 .advisor-information div {
-    padding: 2px;
+    padding: .75px;
 }
 
 .advisor-information-text {
@@ -73,7 +170,7 @@ body {
     margin-bottom: 0px;
     padding-left: 2px;
     padding-right: 2px;
-    font-size: 12px;
+    font-size: 10px;
 }
 .advisor-information-experience {
     display: flex;
@@ -128,26 +225,3 @@ body {
     flex-direction: row;
     justify-content: flex-end;
 }
-
-.iconheart {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    color: red;
-}
-
-
-/* .metrics-price h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.metrics-rating h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.metrics-sessions h4 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-} */
