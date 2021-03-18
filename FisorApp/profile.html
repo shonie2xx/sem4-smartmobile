@@ -1,46 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
   <link rel='stylesheet' href="./css/profile.css">
   <link rel='stylesheet' href="./css/all.min.css">
+  <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 </head>
+
 <body>
-<!-- Profile Edit Begin-->
-<div class="profile-container">
-	<form action="" class="form-profile">
-		<ul class="profile-nav">
-			<li class="profile-nav__item active">
-				<a href="#">Profile</a>
-			</li>
-            <a href="settings.html"><i class="fas fa-cog"></i>
-		</ul>
-        <img class="profile-picture" src="./images/picture.jpg">
-        <a href="profile-edit.html"> <i class="far fa-edit"></i></a>
-        <h1 class="profile__title">John Hill</h1>
-        <p class="profile__subtitle">jhill@gmail.com</p>
-        <a class="card">
-          <h3 class="card__title">Biography</h3>
-            <p class="card__meta">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            </p></a>
-        <ol class="cards">
-            <li><a class="card" href="#">
+
+  <!-- Header -->
+  <nav class="navbar">
+    <h1 class="logo">Fisor</h1>
+    <ul class="desktop-buttons">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">MyProfile</a></li>
+    </ul>
+    <ul class="mobile-buttons">
+      <li><span class="material-icons">home</li>
+      <li><span class="material-icons">search</span></li>
+      <li><span class="material-icons">calendar_today</span></li>
+      <li><span class="material-icons">account_circle</span></li>
+    </ul>
+  </nav>
+  <!-- Header/> -->
+  <!-- Profile Edit Begin-->
+  <div class="profile-container">
+    <form action="" class="form-profile">
+      <ul class="profile-nav">
+        <li class="profile-nav__item active">
+          <a href="#">Profile</a>
+        </li>
+        <a href="settings.html"><i class="fas fa-cog"></i>
+      </ul>
+      <img class="profile-picture" src="./images/picture.jpg">
+      <a href="profile-edit.html"> <i class="far fa-edit"></i></a>
+      <h1 class="profile__title">John Hill</h1>
+      <p class="profile__subtitle">jhill@gmail.com</p>
+      <a class="card">
+        <h3 class="card__title">Biography</h3>
+        <p class="card__meta">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book.
+        </p>
+      </a>
+      <ol class="cards">
+        <li><a class="card" href="#">
             <h4 class="card__titleButton">Reviews</h4>
-                <p class="card__meta">
-                <i class="far fa-star"></i>
-                </p></a></li>
-            <li><a class="card" href="#">
-          <h4 class="card__titleButton">Favorites</h4>
-          <p class="card__meta">
-          <i class="fas fa-heart"></i>
-          </p></a></li>
-        </ol>
+            <p class="card__meta">
+              <i class="far fa-star"></i>
+            </p>
+          </a></li>
+        <li><a class="card" href="#">
+            <h4 class="card__titleButton">Favorites</h4>
+            <p class="card__meta">
+              <i class="fas fa-heart"></i>
+            </p>
+          </a></li>
+      </ol>
   </div>
-	</form>
-</div>
-<!-- Profile Edit End -->
+  </form>
+  </div>
+  <!-- Profile Edit End -->
 </body>
+
 </html>
