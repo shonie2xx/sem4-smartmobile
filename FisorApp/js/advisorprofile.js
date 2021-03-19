@@ -1,9 +1,9 @@
 const advisorprofiledata = [
     {
       img: "images/pexels-giftpunditscom-1310522.jpg",
-      name: "Johna Doe",
+      name: "Helena Janson",
       location: "2025km",
-      email: "johnadoe@gmail.com",
+      email: "helana@gmail.com",
       tag1: "Financial coach",
       tag2: "Broker",
       tag3: "Accountant",
@@ -11,7 +11,7 @@ const advisorprofiledata = [
       tag5: "Business",
       price: "$80/hour",
       rating: "8/10 stars",
-      review: "234",
+      review: "666",
       ongoing: "11",
       sessions: "666",
     //   location: "189km",

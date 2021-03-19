@@ -3,13 +3,38 @@ const searchresultdata = [
       img: "images/pexels-giftpunditscom-1310522.jpg",
       name: "Helena Janson",
       email: "helena@gmail.com",
-      tags: ["VC"],
-      tags2: ["Personal Finance"],
+      tag1: "Financial coach",
+      tag2: "Broker",
+      tag3: "Accountant",
       price: "80 euro",
       rating: "7/10",
       sessions: "248",
       location: "189km",
     },
+    {
+      img: "images/profilepic2.jpg",
+      name: "John Doe",
+      email: "john@gmail.com",
+      tag1: "Investments",
+      tag2: "Financial consultant",
+      tag3: "Robo-advisor",
+      price: "60 euro",
+      rating: "8 stars",
+      sessions: "666",
+      location: ["", ""],
+    },
+    {
+      img: "images/profilepic3.jpg",
+      name: "Johna Doe",
+      email: "johna@gmail.com",
+      tag1: "CFP Professional",
+      tag2: "Wealth advisor",
+      tag3: "Financial consultant",
+      price: "79 euro",
+      rating: "8 stars",
+      sessions: "666",
+      location: ["", ""],
+    }
   ];
   
   document.getElementById("searchresults").innerHTML = `
@@ -30,8 +55,9 @@ const searchresultdata = [
     </p>
 
     <div class="information-bubbles"> <!--Flex row-->
-    <h3>${advisors.tags}</h3>
-    <h3>${advisors.tags2}</h3>
+    <h3>${advisors.tag1}</h3>
+    <h3>${advisors.tag2}</h3>
+    <h3>${advisors.tag3}</h3>
     </div>
     <div class="information-metrics"> <!--Flex row-->
     <div class="metrics-price">
@@ -48,7 +74,11 @@ const searchresultdata = [
     </div>
     </div>
     </div>
-    <i style="margin-top: 0.5rem; margin-right:0.5rem;"class="fas fa-arrow-right"></i> <!--Final coulumn-->
+    <!--Final coulumn-->
+    
+    <a href="advisorprofile.html">
+    <i style="margin-top: 0.5rem; margin-right:0.5rem;"class="fas fa-arrow-right" ></i>
+    </a>
     </div>
       `;
     })
