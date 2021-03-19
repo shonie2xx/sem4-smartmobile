@@ -2,11 +2,24 @@
 <html lang="en">
 
 <head>
+  <link rel="manifest" href="/manifest.json">
   <meta charset="UTF-8">
   <title>Profile</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#4441FE"/>
+  <link rel="apple-touch-icon" href="images/icons/icon-72x72.pngc">
+  <meta name="author" content="Fisor team">
+  <meta name="description" content="Fisor the PWA">
+  <meta name="keywords" content="pwa,workshop,fontys,smart mobile">
+  <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+  <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+  <script src="js/scripts.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
   <link rel='stylesheet' href="./css/profile.css">
   <link rel='stylesheet' href="./css/all.min.css">
-  <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 </head>
 
 <body>
@@ -15,32 +28,45 @@
   <nav class="navbar">
     <h1 class="logo">Fisor</h1>
     <ul class="desktop-buttons">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="search.html">Search</a></li>
       <li><a href="#">Calendar</a></li>
       <li><a href="profile.html">MyProfile</a></li>
     </ul>
     <ul class="mobile-buttons">
-      <li><span onclick="location.href='index.html'" class="fa fa-home" ></li></a>
+      <li><span onclick="location.href='index.html'" class="fa fa-home"></li></a>
       <li><span onclick="location.href='search.html'" class="fa fa-search"></span></li>
       <li><span class="fa fa-calendar"></span></li>
-      <li><span onclick="location.href='profile.html'"  class="fa fa-user"></span></li>
+      <li><span onclick="location.href='profile.html'" class="fa fa-user"></span></li>
     </ul>
   </nav>
   <!-- Header/> -->
+
   <!-- Profile Begin-->
   <div class="profile-container">
-    <form action="" class="form-profile">
-      <ul class="profile-nav">
-        <li class="profile-nav__item active">
-          <a href="#">Profile</a>
-        </li>
-        <a href="settings.html"><i class="fas fa-cog"></i>
-      </ul>
+  
+      <div class="profile-container-title">
+        
+        <!-- <div class="profile-nav__item active"> -->
+          <a href="#" class="profile-title">Profile</a>
+        <!-- </div> -->
+        <a href="settings.html" class="profile-title-settingsicon"><i class="fas fa-cog"></i>
+        </div>
+
+
       <img class="profile-picture" src="./images/picture.jpg">
-      <a href="profile-edit.html"> <i class="far fa-edit"></i></a>
-      <h1 class="profile__title">John Hill</h1>
-      <p class="profile__subtitle">jhill@gmail.com</p>
+
+      <div class="profile-info">
+<a href="profile-edit.html"> <i class="far fa-edit"></i></a>
+<p class="profile__title">John Hill</p>
+<p class="profile__subtitle">jhill@gmail.com</p>
+      
+</div>
+      
+
+      
+
+      
       <a class="card">
         <h3 class="card__title">Biography</h3>
         <p class="card__meta">
@@ -48,21 +74,35 @@
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
           galley of type and scrambled it to make a type specimen book.
         </p>
+
       </a>
-      <ol class="cards">
+
+      <!-- <div class="cards">
+
         <li><a class="card" href="#">
-            <h4 class="card__titleButton">Reviews</h4>
-            <p class="card__meta">
+            <p class="card__titleButton">Reviews</p>
+             <p class="card__meta"> 
               <i class="far fa-star"></i>
-            </p>
+             </p> 
           </a></li>
         <li><a class="card" href="favourite.html">
             <h4 class="card__titleButton">Favorites</h4>
             <p class="card__meta">
               <i class="fas fa-heart"></i>
             </p>
-          </a></li>
-      </ol>
+          </a></li></div>  -->
+
+          
+         
+      <div class="icons-bottom"> 
+       
+        <div class="icon-right">
+          <p style="margin-bottom: 1rem;">Favourites</p>
+          <a class="icon-hearth"  href="favourite.html">
+            <i class="fas fa-heart"></i></a>
+        </div>
+      </div>
+    
   </div>
   </form>
   </div>

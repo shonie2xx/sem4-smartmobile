@@ -21,7 +21,7 @@ const advisordata = [
     price: "60 euro",
     rating: "8 stars",
     sessions: "666",
-    location: ["", ""],
+    location: "200km",
   },
   {
     img: "images/profilepic3.jpg",
@@ -33,7 +33,7 @@ const advisordata = [
     price: "79 euro",
     rating: "8 stars",
     sessions: "666",
-    location: ["", ""],
+    location: "100km",
   }
 ];
 

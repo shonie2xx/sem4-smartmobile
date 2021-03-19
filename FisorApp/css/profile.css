@@ -12,17 +12,25 @@ body {
 }
 
 .profile-container {
-	display: block;
+	/* display: block;
 	position: relative;
 	z-index: 0;
 	margin: 4rem auto 0;
   padding: 5rem 4rem 0 4rem;
 	width: 100%;
 	max-width: 755px;
-	min-height: 835px;
+	min-height: 835px; */
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 13px;
 }
 
-.profile-container:after {
+/* .profile-container:after {
 	content: '';
 	display: inline-block;
 	position: absolute;
@@ -33,23 +41,41 @@ body {
 	left: 0;
 	background-image: rgba(199, 199, 204);
 	box-shadow: 0 -20px 150px -20px rgba(158, 158, 168, 0.5);
-}
+} */
 
-.form-profile {
+/* .form-profile {
 	position: relative;
 	z-index: 1;
   padding-bottom: 3rem;
+} */
+
+.profile-container-title {
+	width:100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.profile-nav {
+.profile-title{
 	position: relative;
-	padding: 0;
-    margin-left:auto;
-	margin-right: auto;
-	margin: 0 0 6em 17rem;
+	color: rgba(68, 65, 254);
+	text-decoration: none;
+	text-transform: uppercase;
+	/* font-weight: 500; */
+	font-size: 1.25rem;
+	padding-bottom: .5rem;
+	transition: .20s all ease;
+}
+.profile-title-settingsicon{
+	color:rgba(68, 65, 254);
 }
 
-.profile-nav__item {
+.profile-info{
+	display: flex;
+	position:relative;
+	flex-direction: column;
+}
+
+/* .profile-nav__item {
 	list-style: none;
 	display: inline-block;
 }
@@ -68,31 +94,31 @@ body {
 .profile-nav__item.active a {
 	color: rgba(68, 65, 254);
 	transition: .15s all ease;
-}
+} */
 
-.profile-nav__item a:after {
+/* .profile-nav__item a:after {
 	content: '';
   display: inline-block;
   position: absolute;
   left: 0;
-}
+} */
 
-.profile-nav__item.active a:after{
+/* .profile-nav__item.active a:after{
 	background-color: rgb(68, 65, 254);
 	height: 2px;
 	right: 0;
 	bottom: 2px;
-}
+} */
 
 .profile-picture {
-	margin-left:auto;
-	margin-right: auto;
-	margin-top: 0rem;
-	margin-bottom: 1.5em;
-	width: 20%;
-	border: 3px solid rgb(68, 65, 254);
-	border-radius: 50%;
-	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 0rem; */
+    margin-bottom: 1.5em;
+    width: 35%;
+    border: 3px solid rgb(68, 65, 254);
+    border-radius: 50%;
+    display: flex;
 }
 
 .fas {
@@ -107,21 +133,21 @@ body {
 }
 
 .profile__title {
-    margin-left:auto;
-	margin-right: auto;
 	margin-top: 0rem;
-	width: 20%;
-	display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     font-size: 25px;
 }
 
 .profile__subtitle {
-    margin-left:auto;
-	margin-right: auto;
-	margin-top: 0rem;
-	margin-bottom: 5em;
-	display: block;
-    width: 20%;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 0rem;
+    margin-bottom: 5em;
+    justify-content: center;
+    display: flex;
+    width: 100%;
     font-size: 15px;
 }
 
@@ -136,23 +162,21 @@ body {
 }
 
 .card {
-    margin-left:auto;
-	margin-right: auto;
+	margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     color: inherit;
-    background-color: #fff;
-    color: #1d1c21;
-    text-decoration: none;
-    padding: 20px;
-    height: 8em;
 }
 
 .card__title {
-    margin-left:auto;
-	margin-right: auto;
+	margin-left: auto;
+    margin-right: auto;
     font-size: 18px;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
 }
 
 .card__titleButton {
@@ -165,37 +189,34 @@ body {
 }
 
 .card__meta {
-    margin-left:auto;
-	margin-right: auto;
-    font-size: 14px;
-    color: #000000;
+	margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    display: flex;
+    position: relative;
+    color: black;
+}
+
+/* /////////////////////////////NOT TO DELETE//////////////////// */
+.icons-bottom{
+display:flex;
+width: 100%;
+justify-content: space-between;	
+margin-top: 1em;
 }
 
 
-.mobile-buttons {
-	display: none;
-  }
-  @media only screen and (max-width: 800px) {
-	.navbar .desktop-buttons {
-	  display: none;
-	}
-	.mobile-buttons {
-	  display: block;
-	  color: #848282;
-	  background: #f3f6f9;
-	  position: fixed;
-	  bottom: 0;
-	  left: 0;
-	  display: flex;
-	  justify-content: space-around;
-	  align-items: center;
-	  width: 100%;
-	  padding: 10px;
-	}
-	.mobile-buttons span {
-	  font-size: 30px;
-	}
-	.mobile-buttons li:hover span {
-	  color: #4441fe;
-	}
-  }
+
+.icon-right{
+	display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.icon-hearth{
+display: contents;
+color:red;
+
+
+}

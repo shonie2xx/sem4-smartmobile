@@ -36,11 +36,13 @@ const searchresultdata = [
       location: ["", ""],
     }
   ];
+  // advisordata.map(function (advisors) {
+  // document.getElementById("wetry").innerHTML += `
   
-  document.getElementById("searchresults").innerHTML = `
-  ${searchresultdata
-    .map(function (advisors) {
-      return `
+  
+  searchresultdata.map(function (advisors) {
+      document.getElementById("searchresults").innerHTML +=
+     `
       <div class="advisors"> <!--Flex column-->
     <div class="advisor-card"> <!--Flex row-->
     <div class="imgcontainer"><img src="${advisors.img}"></div>
@@ -80,7 +82,7 @@ const searchresultdata = [
     <i style="margin-top: 0.5rem; margin-right:0.5rem;"class="fas fa-arrow-right" ></i>
     </a>
     </div>
-      `;
+      `
     })
-    .join("")}
-  `;
+    
+  

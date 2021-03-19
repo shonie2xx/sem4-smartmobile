@@ -3,8 +3,6 @@
     padding:0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    color: white;
-    
     }
     
     .advisors {
@@ -81,7 +79,7 @@
     .mobile-buttons {
     display: none;
 }
-  @media only screen and (max-width: 800px) {
+  /* @media only screen and (max-width: 800px) {
     .navbar .desktop-buttons {
       display: none;
     }
@@ -104,4 +102,4 @@
     .mobile-buttons li:hover span {
       color: #4441fe;
     }
-  }
+  } */
