@@ -1,9 +1,20 @@
 const cacheName="PWA_CACHE_V1";
 const appFiles=[
 	"manifest.json",
-  //"./",
-  //"index.html",
+  "index.html",
   "offline.html",
+  "advisor.html",
+  "advisorpage.html",
+  "favourite.html",
+  "login.html",
+  "register.html",
+  "questions.html",
+  "notification.html",
+  "profile.html",
+  "profile-edit.html",
+  "search.html",
+  "searchresults.html",
+  "settings.html",
 	"js/scripts.js",
 	"css/stylesheet.css",
 	"images/icons/icon-72x72.png",
@@ -14,7 +25,19 @@ const appFiles=[
   "images/icons/icon-192x192.png",
   "images/icons/icon-384x384.png",
   "images/icons/icon-512x512.png",
-  "images/favicon.ico"
+  "images/favicon.ico",
+  
+  "images/baseline_search_black_18dp.png",
+  "images/HomeIcon.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
+  "images/icons/icon-512x512.png",
 ];
 
 self.addEventListener("install",(installing)=>{
