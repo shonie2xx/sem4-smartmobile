@@ -325,7 +325,7 @@ blockquote p {
 .search-container input[type="text"] {
   padding: 0.5rem;
   margin-top: 8px;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   border: none;
   border-radius: 10px 0px 0px 10px; 
 }
@@ -535,3 +535,22 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* form-result margins */
+
+.form-result {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.result-container button {
+  background-color: #4441FE;
+  border:none;
+  border-radius:13px;
+  padding: 3px;
+}
+
+.result-container input {
+  background-color: inherit;
+  border:none;
+  color: grey;
+}
