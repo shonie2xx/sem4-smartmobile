@@ -1,22 +1,22 @@
 const advisorprofiledata = [
     {
-      img: "./images/thispersondoesnotexist.png",
+      img: "images/pexels-giftpunditscom-1310522.jpg",
       name: "Johna Doe",
-      city: "Eindhoven, Netherlands",
+      location: "2025km",
       email: "johnadoe@gmail.com",
-      tags: "Finance",
-      tag2: "VC",
-      tag3: "Corporate",
+      tag1: "Financial coach",
+      tag2: "Broker",
+      tag3: "Accountant",
       tag4: "Personal",
       tag5: "Business",
-      price: "$79/hour",
-      rating: "7/10",
+      price: "$80/hour",
+      rating: "8/10 stars",
       review: "234",
       ongoing: "11",
-      sessions: "448",
-      location: "189km",
+      sessions: "666",
+    //   location: "189km",
       user_review: "John Doe User",
-    },
+    }
   ];
   
   document.getElementById("advisorprofile").innerHTML = `
@@ -33,7 +33,7 @@ const advisorprofiledata = [
             <h3 id="name">${advisors.name}</h3>
             <div class="city">
                 <i class="fas fa-map-marker-alt" id="location"></i>
-                <h3 id="city"> ${advisors.city}</h3>
+                <h3 id="city"> ${advisors.location}</h3>
             </div>
             <div class="price-email-rating-row">
                 <div class="perr-text" id="price">
@@ -56,7 +56,7 @@ const advisorprofiledata = [
             <div class="financial-experience"> <!--Flex column-->
                 <h3 id="financial-text">Financial Experience</h3>
                 <div class = "experience-bubbles"> <!--Flex row-->
-                    <h5>${advisors.tag}</h5>
+                    <h5>${advisors.tag1}</h5>
                     <h5>${advisors.tag2}</h5>
                     <h5>${advisors.tag3}</h5>
                     <h5>${advisors.tag4}</h5>

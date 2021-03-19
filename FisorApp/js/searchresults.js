@@ -1,11 +1,11 @@
 const searchresultdata = [
     {
-      img: "./images/thispersondoesnotexist.png",
-      name: "Helena Doe",
+      img: "images/pexels-giftpunditscom-1310522.jpg",
+      name: "Helena Janson",
       email: "helena@gmail.com",
       tags: ["VC"],
       tags2: ["Personal Finance"],
-      price: "$14/hour",
+      price: "80 euro",
       rating: "7/10",
       sessions: "248",
       location: "189km",
