@@ -77,3 +77,31 @@
     h6 {
     font-size: 9px;
     }
+    
+    .mobile-buttons {
+    display: none;
+}
+  @media only screen and (max-width: 800px) {
+    .navbar .desktop-buttons {
+      display: none;
+    }
+    .mobile-buttons {
+      display: block;
+      color: #848282;
+      background: #f3f6f9;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+    }
+    .mobile-buttons span {
+      font-size: 30px;
+    }
+    .mobile-buttons li:hover span {
+      color: #4441fe;
+    }
+  }
