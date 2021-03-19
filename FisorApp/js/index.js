@@ -34,7 +34,7 @@ const advisordata = [
     rating: "8 stars",
     sessions: "666",
     location: ["", ""],
-  },
+  }
 ];
 
 // const advisordata = [];
