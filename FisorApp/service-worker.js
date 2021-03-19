@@ -1,4 +1,4 @@
-const cacheName="PWA_CACHE_V1";
+const cacheName="FisorApp";
 const appFiles=[
 	"manifest.json",
   "index.html",
@@ -26,19 +26,9 @@ const appFiles=[
   "images/icons/icon-384x384.png",
   "images/icons/icon-512x512.png",
   "images/favicon.ico",
-  
-  "images/baseline_search_black_18dp.png",
-  "images/HomeIcon.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
-  "images/icons/icon-512x512.png",
+  "images/baseline_search_black_18dp.png"
 ];
+
 
 self.addEventListener("install",(installing)=>{
   console.log("Service Worker: I am being installed, Hello World!");
