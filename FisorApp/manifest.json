@@ -1,12 +1,12 @@
 {
   "name": "FisorApp",
   "short_name": "Fisor",
-  "theme_color": "#fff",
+  "theme_color": "#4441FE",
   "background_color": "#fff",
   "display": "fullScreen",
   "orientation": "portrait",
-  "scope": ".",
-  "start_url": "./",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

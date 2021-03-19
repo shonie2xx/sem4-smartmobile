@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="css/card.css">
     <link rel='stylesheet' href="./css/all.min.css">
     <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+    <script src="js/scripts.js" type="text/javascript"></script>
+
     <title>Search Results</title>
 </head>
 
 <body>
+<div class="flex-container">
     <!-- Header -->
   <nav class="navbar">
     <h1 class="logo">Fisor</h1>
@@ -29,6 +32,9 @@
       <li><span onclick="location.href='profile.html'"  class="fa fa-user"></span></li>
     </ul>
   </nav>
+  </div>
+
+
   <!-- Header/> -->
     <div class="result-container">
         <form action="" class="form-result">
@@ -48,113 +54,12 @@
             </header>
         </form>
         <hr><br><br>
-<div class="advisors"> <!--Flex column-->
-<div class="advisor-card"> <!--Flex row-->
-<img src="./images/thispersondoesnotexist.png" alt="profile pic"> <!--First column-->
-<div class="information"> <!--Flex column--> 
-<div class="information-heading"> <!--Flex row-->
-<h2>John Doe</h2>
-</div>
-<p>
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel culpa consequatur facere suscipit,
-a voluptate maxime veritatis obcaecati ad dolor, placeat eaque, possimus odit deserunt quis ipsum 
-nisi illum reprehenderit.
-</p>
+    </div>
+    
 
-<div class="information-bubbles"> <!--Flex row-->
-<h3>VC</h3>
-<h3>Personal finance</h3>
-</div>
-<div class="information-metrics"> <!--Flex row-->
-<div class="metrics-price">
-<h4>Price</h4>
-<h6 >$5/hour</h6>
-</div>
-<div class="metrics-ratings">
-<h4>Ratings</h4>
-<h6>5/10</h6>
-</div>
-<div class="metrics-sessions">
-<h4>Sessions</h4>
-<h6>2000</h6>
-</div>
-</div>
-</div>
-<i style="margin-top: 0.5rem; margin-right:0.5rem;"class="fas fa-arrow-right"></i> <!--Final coulumn-->
-</div>
-</div>
+    <div id="searchresults">
+    </div>
 
-<div class="advisors"> <!--Flex column-->
-<div class="advisor-card"> <!--Flex row-->
-<img src="./images/thispersondoesnotexist.png" alt="profile pic"> <!--First column-->
-<div class="information"> <!--Flex column--> 
-<div class="information-heading"> <!--Flex row-->
-<h2>John Doe</h2>
-</div>
-<p>
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel culpa consequatur facere suscipit,
-a voluptate maxime veritatis obcaecati ad dolor, placeat eaque, possimus odit deserunt quis ipsum 
-nisi illum reprehenderit.
-</p>
-
-<div class="information-bubbles"> <!--Flex row-->
-<h3>VC</h3>
-<h3>Personal finance</h3>
-</div>
-<div class="information-metrics"> <!--Flex row-->
-<div class="metrics-price">
-<h4>Price</h4>
-<h6 >$5/hour</h6>
-</div>
-<div class="metrics-ratings">
-<h4>Ratings</h4>
-<h6>5/10</h6>
-</div>
-<div class="metrics-sessions">
-<h4>Sessions</h4>
-<h6>2000</h6>
-</div>
-</div>
-</div>
-<i style="margin-top: 0.5rem; margin-right:0.5rem;"class="fas fa-arrow-right"></i> <!--Final coulumn-->
-</div>
-</div>
-
-<div class="advisors"> <!--Flex column-->
-<div class="advisor-card"> <!--Flex row-->
-<img src="./images/thispersondoesnotexist.png" alt="profile pic"> <!--First column-->
-<div class="information"> <!--Flex column--> 
-<div class="information-heading"> <!--Flex row-->
-<h2>John Doe</h2>
-</div>
-<p>
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel culpa consequatur facere suscipit,
-a voluptate maxime veritatis obcaecati ad dolor, placeat eaque, possimus odit deserunt quis ipsum 
-nisi illum reprehenderit.
-</p>
-
-<div class="information-bubbles"> <!--Flex row-->
-<h3>VC</h3>
-<h3>Personal finance</h3>
-</div>
-<div class="information-metrics"> <!--Flex row-->
-<div class="metrics-price">
-<h4>Price</h4>
-<h6 >$5/hour</h6>
-</div>
-<div class="metrics-ratings">
-<h4>Ratings</h4>
-<h6>5/10</h6>
-</div>
-<div class="metrics-sessions">
-<h4>Sessions</h4>
-<h6>2000</h6>
-</div>
-</div>
-</div>
-<i style="margin-top: 0.5rem; margin-right:0.5rem;"class="fas fa-arrow-right"></i> <!--Final coulumn-->
-</div>
-</div>
 </body>
-
+<script src="js/searchresults.js" type="text/javascript"></script>
 </html>

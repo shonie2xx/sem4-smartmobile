@@ -1,17 +1,33 @@
 [
     {
-        "img": "",
-        "name": "batebate",
-        "email": "batebate@asd.com",
-        "tags": [
-            "Financial coach, Broker, Accountant"
-        ],
-        "price": "80 evro bate",
-        "rating": "8 zvezdi",
-        "sessions": "666",
-        "location": [
-            "",
-            ""
-        ]
+      "img": "images/pexels-giftpunditscom-1310522.jpg",
+      "name": "Helena Doe",
+      "email": "helena@gmail.com",
+      "tags": ["Financial coach, Broker, Accountant"],
+      "price": "80 euro",
+      "rating": "8 stars",
+      "sessions": "666",
+      "location": "2025km"
+    },
+    {
+      "img": "images/profilepic2.jpg",
+      "name": "Daniel V.",
+      "email": "daniel@gmail.com",
+      "tags": ["Financial coach, Broker, Accountant"],
+      "price": "60 euro",
+      "rating": "8 stars",
+      "sessions": "666",
+      "location": ["", ""]
+    },
+    {
+      "img": "images/profilepic3.jpg",
+      "name": "Ufuk A.",
+      "email": "daniel@gmail.com",
+      "tags": ["Financial coach, Broker, Accountant"],
+      "price": "60 euro",
+      "rating": "8 stars",
+      "sessions": "666",
+      "location": ["", ""]
     }
 ]
+
