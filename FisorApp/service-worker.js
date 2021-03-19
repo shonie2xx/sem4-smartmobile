@@ -91,3 +91,4 @@ self.addEventListener("notificationclick",function(clicking){
 	const promiseChain=clients.openWindow(pageToOpen);
 	event.waitUntil(promiseChain);
 });
+

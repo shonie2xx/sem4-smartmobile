@@ -40,7 +40,7 @@ const advisorprofiledata = [
                     <h2>Price</h2>
                     <h4>${advisors.price}</h4>
                 </div> <!--Flex column-->
-                <i class="fas fa-address-card fa-4x" id="email-icon"></i>
+                <a href="https://mail.google.com/"><i class="fas fa-address-card fa-4x" id="email-icon"></i></a>
                 <div class="perr-text" id="rating">
                     <h2>Rating</h2>
                     <h4>${advisors.rating}</h4>                   
