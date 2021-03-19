@@ -1,7 +1,7 @@
 const advisorprofiledata = [
     {
       img: "images/pexels-giftpunditscom-1310522.jpg",
-      name: "Johna Doe",
+      name: "Helena Janson",
       location: "2025km",
       email: "johnadoe@gmail.com",
       tag1: "Financial coach",
