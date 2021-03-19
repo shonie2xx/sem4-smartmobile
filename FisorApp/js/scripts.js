@@ -52,6 +52,7 @@ function getLocation() {
 	console.log(location)
   }
 
+
 // function showDistance() 
 // {
 // 	return haversineDistance(getLocation(),(51.935585763682894, 4.437270865754224),false);
@@ -87,3 +88,4 @@ function getLocation() {
 
 //   return d;
 // }
+

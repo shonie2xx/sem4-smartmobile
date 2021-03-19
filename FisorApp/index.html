@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  
 </head>
 
 <body>
@@ -29,7 +30,7 @@
       <li><a href="profile.html">MyProfile</a></li>
     </ul>
     <ul class="mobile-buttons">
-      <li><span onclick="location.href='index.html'" class="fa fa-home" ></li></a>
+      <li><span onclick="location.href='index.html'" class="fa fa-home"></li></a>
       <li><span onclick="location.href='search.html'" class="fa fa-search"></span></li>
       <li><span class="fa fa-calendar"></span></li>
       <li><span onclick="location.href='profile.html'" class="fa fa-user"></span></li>
@@ -37,157 +38,20 @@
   </nav>
   <!-- Header/> -->
 
-
-
   <h3 class="container-title">Popular</h3>
 
   <div class="flex-container">
-
-    <div class="mySlides">
-      <div class="person-info">
-        <p>Helena Janson</p>
-        <p id="locationdistance"></p>
-        
-      </div>
-      <div class="person-tags">
-        <p>Financial coach</p>
-        <p>Accountant</p>
-        <p>Broker</p>
-      </div>
-      <img src="images/pexels-giftpunditscom-1310522.jpg" style="width:100%">
-
-      <div class="text-boxes-bottom">
-        <div class="price">
-          <h1>Price</h1>
-          <p>79€/hour</p>
-        </div>
-        <div class="rating">
-          <h1>Rating</h1>
-          <p>8.9/10</p>
-        </div>
-        <div class="sessions">
-          <h1>Sessions</h1>
-          <p>230</p>
-        </div>
-      </div>
+    <div id="wetry">
     </div>
-
-    <div class="mySlides">
-      <div class="person-info">
-        <p>Helena Janson</p>
-        <p>Sofia, Bulgaria</p>
-      </div>
-      <img src="images/pexels-giftpunditscom-1310522.jpg" style="width:100%">
-      <div class="text-boxes-bottom">
-        <div class="price">
-          <h1>Price</h1>
-          <p>79€/hour</p>
-        </div>
-        <div class="rating">
-          <h1>Rating</h1>
-          <p>8.9/10</p>
-        </div>
-        <div class="sessions">
-          <h1>Sessions</h1>
-          <p>230</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mySlides">
-      <div class="person-info">
-        <p>Helena Janson</p>
-        <p>Sofia, Bulgaria</p>
-      </div>
-      <img src="images/pexels-giftpunditscom-1310522.jpg" style="width:100%">
-      <div class="text-boxes-bottom">
-        <div class="price">
-          <h1>Price</h1>
-          <p>79€/hour</p>
-        </div>
-        <div class="rating">
-          <h1>Rating</h1>
-          <p>8.9/10</p>
-        </div>
-        <div class="sessions">
-          <h1>Sessions</h1>
-          <p>230</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mySlides">
-      <div class="person-info">
-        <p>Helena Janson</p>
-        <p>Sofia, Bulgaria</p>
-      </div>
-      <img src="images/pexels-giftpunditscom-1310522.jpg" style="width:100%">
-      <div class="text-boxes-bottom">
-        <div class="price">
-          <h1>Price</h1>
-          <p>79€/hour</p>
-        </div>
-        <div class="rating">
-          <h1>Rating</h1>
-          <p>8.9/10</p>
-        </div>
-        <div class="sessions">
-          <h1>Sessions</h1>
-          <p>230</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mySlides">
-      <div class="person-info">
-        <p>Helena Janson</p>
-        <p>Sofia, Bulgaria</p>
-      </div>
-      <img src="images/pexels-giftpunditscom-1310522.jpg" style="width:100%">
-      <div class="text-boxes-bottom">
-        <div class="price">
-          <h1>Price</h1>
-          <p>79€/hour</p>
-        </div>
-        <div class="rating">
-          <h1>Rating</h1>
-          <p>8.9/10</p>
-        </div>
-        <div class="sessions">
-          <h1>Sessions</h1>
-          <p>230</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mySlides">
-      <div class="person-info">
-        <p>Helena Janson</p>
-        <p>Sofia, Bulgaria</p>
-      </div>
-      <img src="images/pexels-giftpunditscom-1310522.jpg" style="width:100%">
-      <div class="text-boxes-bottom">
-        <div class="price">
-          <h1>Price</h1>
-          <p>79€/hour</p>
-        </div>
-        <div class="rating">
-          <h1>Rating</h1>
-          <p>8.9/10</p>
-        </div>
-        <div class="sessions">
-          <h1>Sessions</h1>
-          <p>230</p>
-        </div>
-      </div>
-    </div>
-
     <div class="arrows">
-      <a class="prev" onclick="plusSlides(-1)">❮</a>
-      <a class="next" onclick="plusSlides(1)">❯</a>
-    </div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
   </div>
-
+  </div>
+  
+  
+  <script src="js/index.js" type="text/javascript"></script>
+ 
   <!--quotes  -->
   <blockquote>
     <h3 class="container-title">Quote of the day</h3>
@@ -196,30 +60,7 @@
   </blockquote>
   <!-- quotes/ -->
 
-
-  <script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
-    }
-  </script>
+  
 </body>
 
 </html>
