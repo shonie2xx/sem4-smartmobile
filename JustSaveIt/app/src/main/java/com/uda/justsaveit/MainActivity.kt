@@ -1,6 +1,8 @@
 package com.uda.justsaveit
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
 
@@ -12,5 +14,9 @@ class MainActivity : AppCompatActivity() {
         // Testing RealTime DB
         var database = FirebaseDatabase.getInstance().reference
         database.setValue("Data Saved in db")
+    }
+
+    fun redirectToMaps(view: View) {
+        startActivity(Intent(applicationContext,MapsActivity::class.java))
     }
 }
