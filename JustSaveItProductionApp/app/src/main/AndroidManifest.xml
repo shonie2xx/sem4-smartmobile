@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Justsaveitnewapp">
-        <activity android:name=".ui.AddMonthlyBudget"></activity>
+        <activity android:name=".ui.AddExpenseActivity"></activity>
+        <activity android:name=".ui.AddMonthlyBudget" />
         <activity android:name=".ui.AddIncomeActivity" />
         <activity android:name=".ui.HomePageActivity" />
         <activity android:name=".ui.RegisterActivity" />

@@ -11,32 +11,40 @@ import com.example.justsaveit_newapp.firestore.FireStoreClass
 import com.google.firebase.auth.FirebaseAuth
 
 class HomePageActivity : AppCompatActivity() {
-
    private lateinit var auth: FirebaseAuth
     var selectedDate: String? = null
-//   var spinnerResult: TextView = findViewById(R.id.tbSelected)
 
+//    val textViewContent: TextView = findViewById(R.id.tbSelected)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
         auth = FirebaseAuth.getInstance()
-        spinner()
+        spinnerMonthDate()
         addIncome()
-
+        addExpense()
     }
 
     private fun addIncome(){
         val toIncome: Button = findViewById(R.id.btnToIncomePage)
-        val textViewContent: TextView = findViewById(R.id.tbSelected)
+
         toIncome.setOnClickListener{
             val intent = Intent(this, AddIncomeActivity::class.java).apply{
-                putExtra("year_month",textViewContent.text)
+                putExtra("year_month",selectedDate)
             }
             startActivity(intent)
         }
     }
 
-    private fun spinner(){
+    private fun addExpense(){
+        val toExpense: Button = findViewById(R.id.btnToExpenseActivity)
+        toExpense.setOnClickListener{
+            val intent = Intent(this,AddExpenseActivity::class.java).apply{
+                putExtra("year_month",selectedDate)
+            }
+            startActivity(intent)
+        }
+    }
+    private fun spinnerMonthDate(){
         val query = FireStoreClass().getAllMonthlyBudgetName(this,auth.currentUser!!.uid)
         query.addOnSuccessListener() { list->
             val months = ArrayList<String>()

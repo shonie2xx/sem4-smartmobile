@@ -1,7 +1,9 @@
 package com.example.justsaveit_newapp.firestore
 
+import com.example.justsaveit_newapp.models.Expense
 import com.example.justsaveit_newapp.models.MonthlyBudget
 import com.example.justsaveit_newapp.models.User
+import com.example.justsaveit_newapp.ui.AddExpenseActivity
 import com.example.justsaveit_newapp.ui.AddIncomeActivity
 import com.example.justsaveit_newapp.ui.HomePageActivity
 import com.example.justsaveit_newapp.ui.RegisterActivity
@@ -34,6 +36,36 @@ class FireStoreClass {
                 }
                 .addOnFailureListener{
                     activity.registerFailure()
+                }
+    }
+
+    fun addExpense(activity:RegisterActivity, expense: Expense, userId:String, budgetDate:String){
+        mFireStore.collection("users").document(userId).collection("monthlybudgets")
+                .document(budgetDate).collection("expenses").document(expense.category.toString())
+                .set(expense, SetOptions.merge())
+                .addOnSuccessListener{
+                    activity.registerSuccessful()
+                }
+                .addOnFailureListener{
+                    activity.registerFailure()
+                }
+    }
+
+    fun getExpenses(activity:AddExpenseActivity,userId: String,budgetDate: String) : Task<QuerySnapshot> {
+        return mFireStore.collection("users").document(userId).collection("monthlybudgets")
+            .document(budgetDate).collection("expenses").get()
+    }
+
+    fun editExpense(activity: AddExpenseActivity, userId:String, monthYear:String, expenseCategory:String, amount:Double){
+        val docRef: DocumentReference = mFireStore.collection("users").document(userId)
+                .collection("monthlybudgets").document(monthYear).collection("expenses")
+                .document(expenseCategory)
+
+        docRef.update("amount",FieldValue.increment(amount)).addOnSuccessListener{
+            activity.success()
+        }
+                .addOnFailureListener{
+                    activity.failure()
                 }
     }
 

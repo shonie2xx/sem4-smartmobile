@@ -10,6 +10,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
+import com.example.justsaveit_newapp.models.Expense
+import com.example.justsaveit_newapp.models.ExpenseCategory
 import com.example.justsaveit_newapp.models.MonthlyBudget
 import com.example.justsaveit_newapp.models.User
 import com.google.android.material.textfield.TextInputEditText
@@ -79,8 +81,30 @@ class RegisterActivity : AppCompatActivity() {
                             0.0,
                             0.0
                         )
+
+                        //Default expenses
+                        val expenseGroceries = Expense(
+                                ExpenseCategory.GROCERIES,
+                                0.0,
+                                0.0
+                        )
+                        val expensePets = Expense(
+                                ExpenseCategory.PETS,
+                                0.0,
+                                0.0
+                        )
+                        val expenseHome = Expense(
+                                ExpenseCategory.HOME,
+                                0.0,
+                                0.0
+                        )
+
                         FireStoreClass().registerUser(this,user)
                         FireStoreClass().addFirstMonthlyBudget(this,user,budget)
+                        FireStoreClass().addExpense(this,expenseGroceries,user.id,budget.date.toString())
+                        FireStoreClass().addExpense(this,expensePets,user.id,budget.date.toString())
+                        FireStoreClass().addExpense(this,expenseHome,user.id,budget.date.toString())
+
                         startActivity(Intent(this, LoginActivity::class.java))
 
                     } else {
