@@ -1,10 +1,12 @@
 package com.example.justsaveit_newapp.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
@@ -16,6 +18,7 @@ class HomePageActivity : AppCompatActivity() {
     var selectedDate: String? = null
 //   var spinnerResult: TextView = findViewById(R.id.tbSelected)
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
@@ -36,6 +39,7 @@ class HomePageActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun spinner(){
         val query = FireStoreClass().getAllMonthlyBudgetName(this,auth.currentUser!!.uid)
         query.addOnSuccessListener() { list->
@@ -73,6 +77,7 @@ class HomePageActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun fetchData(){
         val incomeFetch: TextView = findViewById(R.id.tbIncomeFetch)
         val savingsFetch: TextView = findViewById(R.id.tbSavingsFetch)

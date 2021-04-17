@@ -1,5 +1,8 @@
 package com.example.justsaveit_newapp.firestore
 
+import android.os.Build
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.justsaveit_newapp.models.DateMap
 import com.example.justsaveit_newapp.models.MonthlyBudget
 import com.example.justsaveit_newapp.models.User
@@ -8,8 +11,11 @@ import com.example.justsaveit_newapp.ui.HomePageActivity
 import com.example.justsaveit_newapp.ui.RegisterActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
+import java.text.SimpleDateFormat
 import java.time.YearMonth
 import java.util.*
+
+@RequiresApi(Build.VERSION_CODES.O)
 
 class FireStoreClass {
 
@@ -40,71 +46,47 @@ class FireStoreClass {
                 }
     }
 
-    fun getLastMonthlyBudgetDate(userId: String) : YearMonth?{
+
+    fun getLastMonthlyBudgetDate(userId: String): YearMonth {
 //        get last added monthly budget so the new one can be added as new MonthlyBudget ( YearMonth. minusMonths(-1)
-        //get list of document snapshots, binary search the highest document.monthYear,
+        //get list of document snapshots, query the highest document.monthYears then limit to one doc,
         // return document.monthyear as a YearMonth format
 
-//        var date: Date? = null
+        var ym: YearMonth = YearMonth.parse("0000-00")
 //        var dateMaps : ArrayList<DateMap>? = null
-//        val docRef = mFireStore.collection("users")
-//            .document(userId).collection("monthlybudgets").get()
-//
-//
-//        docRef.addOnSuccessListener {
-//            it.documents.forEach { doc ->
-//                doc.data
-//                doc.data!!.forEach {
-//                    if(it.key == "date"){
-//                        val map = it.value
-//                    }
-//                }
-//                val dm = it.value.toObject(DateMap::class.java)
-//                if (dm != null ) {
-//                    if()
-//                    dateMaps?.add(dm)
-//                }
-//
-//                //it.toObject(MonthlyBudget::class.java)
-////                val dateMapUnit  = it.getData()?.forEach {
-////                    if(it.key == "date") {
-////                        it.value.
-////                        var maps = MutableList<Map<String,Any>>()
-////                        maps.add(it.value)
-////                    }
-////                }
-//                }
-//                if(dateMaps!= null){
-//                    var highestYear = dateMaps[0].year!!.toInt()
-//                    var currentYear :Int
-//                    for (i in 0 until dateMaps!!.size-1) {
-//                        currentYear = dateMaps[i].year!!.toInt()
-//                            if(currentYear > highestYear){
-//                                highestYear = currentYear
-//                            }
-//                    }
-//                    //highest year found
-//                    var highestMonth = dateMaps[0].monthValue!!.toInt()
-//                    for (i in 0 until dateMaps!!.size-1) {
-//                        currentYear = dateMaps[i].year!!.toInt()
-//                        if()
-//                    }
-//                }
-//            }
-        return null
-        }
-            //.orderBy("date", Query.Direction.DESCENDING).limit(1).get()
-
-      /*      sortedQuery.addOnSuccessListener {
-                //QuerySnapshot to Documents, get the first doc
+        val docRef = mFireStore.collection("users")
+            .document(userId).collection("monthlybudgets")
+            .orderBy("date", Query.Direction.DESCENDING).limit(1).get().addOnSuccessListener {
                 val doc = it.documents[0]
-                date = doc.getDate("date")
+                val date = doc.getDate("date")
+                val sdf: SimpleDateFormat = SimpleDateFormat("YYYY-MM")
+                ym = YearMonth.parse(sdf.format(date))
             }
-                sortedQuery.addOnFailureListener {
-            }
-        return date*/
-// citiesRef.orderBy("name", Query.Direction.DESCENDING).limit(3)
+        return ym
+    }
 
+    fun addNewMonthlyBudget(userId: String){
+        var lastMonth: YearMonth = getLastMonthlyBudgetDate(userId)
+        var newYear = lastMonth.year
+        var newMonth = lastMonth.monthValue + 1
+        if(newMonth == 13){
+            newYear++
+            newMonth = 1
+        }
+        val newYearMonth = YearMonth.parse("${newYear}-${newMonth}")
+        val newMonthlyBudget = MonthlyBudget(newYearMonth,0.0,0.0,0.0)
+        mFireStore.collection("users")
+            .document(userId).collection("monthlybudgets").add(newMonthlyBudget)
+        // Need to add expense?
+    }
+
+    fun addExpenses(userId: String) {
+        //addExpense(this,expenseGroceries,user.id,budget.date.toString())
+        //addExpense(this,expenseClothing,user.id,budget.date.toString())
+        //addExpense(this,expensePhone,user.id,budget.date.toString())
+        //addExpense(this,expenseVehicle,user.id,budget.date.toString())
+        //addExpense(this,expenseHouse,user.id,budget.date.toString())
+    }
 
     //if there is budgets USE
     fun editMonthlyBudget(activity: AddIncomeActivity, userId:String, monthYear: String,incomeAmount:Double,savings: Double){
