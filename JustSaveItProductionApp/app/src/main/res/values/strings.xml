@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Just Safe It</string>
+    <string name="pageTitle">Login</string>
+
+    <string name="btnText2">Don\'t have an account</string>
+    <string name="btnLoginText">Login</string>
+
+    <string name="btnRegister">Register</string>
+    <string name="btnBackToLogin">Back</string>
+    <string name="registerTitle">Register</string>
+    <string name="regPassword">password</string>
+    <string name="regEmail">email</string>
+    <string name="loginpass">password</string>
+    <string name="loginEmail">email</string>
+    <string name="current_month">Month</string>
+
+    <string-array name="savings_percantage">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+        <item>90</item>
+        <item>95</item>
+        <item>100</item>
+    </string-array>
+</resources>
