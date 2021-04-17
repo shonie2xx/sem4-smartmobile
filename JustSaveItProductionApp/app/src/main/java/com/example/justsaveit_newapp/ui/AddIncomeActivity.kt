@@ -1,10 +1,12 @@
 package com.example.justsaveit_newapp.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
@@ -14,6 +16,7 @@ class AddIncomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     var yearMonth: String? = null
     var savings: Double? = null
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_income)
@@ -49,6 +52,7 @@ class AddIncomeActivity : AppCompatActivity() {
         }
     }
     //add income
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun add(){
          val btnAdd : Button = findViewById(R.id.btnAdd)
         btnAdd.setOnClickListener{

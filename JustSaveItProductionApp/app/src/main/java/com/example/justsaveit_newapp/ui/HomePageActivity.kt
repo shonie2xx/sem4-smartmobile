@@ -1,10 +1,12 @@
 package com.example.justsaveit_newapp.ui
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
@@ -13,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 class HomePageActivity : AppCompatActivity() {
    private lateinit var auth: FirebaseAuth
     var selectedDate: String? = null
+
+    @RequiresApi(Build.VERSION_CODES.O)
 
 //    val textViewContent: TextView = findViewById(R.id.tbSelected)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +39,8 @@ class HomePageActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun spinner(){
     private fun addExpense(){
         val toExpense: Button = findViewById(R.id.btnToExpenseActivity)
         toExpense.setOnClickListener{
@@ -81,6 +87,7 @@ class HomePageActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun fetchData(){
         val incomeFetch: TextView = findViewById(R.id.tbIncomeFetch)
         val savingsFetch: TextView = findViewById(R.id.tbSavingsFetch)
