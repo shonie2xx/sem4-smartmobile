@@ -14,6 +14,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "AIzaSyA81mgvWxcui9DU-1dI16_pgArVMZOoyyY")
@@ -46,6 +47,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.firebase:firebase-firestore:22.1.2'
 
 
     // Testing
@@ -64,4 +66,22 @@ dependencies {
     // Play Services to get Location of Device=
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // FontAwsome Icons
+    implementation 'info.androidhive:fontawesome:0.0.5'
+
+    // Chart Library
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+/*
+    // Chart Library
+    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
+
+    // Chart Library
+    implementation 'com.github.furkanaskin:ClickablePieChart:1.0.8'
+*/
+
+
 }
