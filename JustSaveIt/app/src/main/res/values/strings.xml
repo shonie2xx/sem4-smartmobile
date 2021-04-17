@@ -6,6 +6,12 @@
     <string name="taskInProgress">InProgress</string>
     <string name="taskPoints">Points:</string>
     <string name="progress">0%</string>
-    <string name="find">Find</string>
+    <string name="save">Save Location</string>
     <string name="title_activity_maps">Map</string>
+
+    <string-array name="categories">
+        <item>Select Category</item>
+        <item>ATM</item>
+        <item>Groceries</item>
+    </string-array>
 </resources>

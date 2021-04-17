@@ -17,6 +17,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun redirectToMaps(view: View) {
-        startActivity(Intent(applicationContext,MapsActivity::class.java))
+        startActivity(Intent(applicationContext, MapsActivity::class.java))
+    }
+
+    fun redirectToHome(view: View) {
+        startActivity(Intent(applicationContext, HomeActivity::class.java))
+    }
+
+
+    fun goBack(view: View) {
+        startActivity(Intent(applicationContext, HomeActivity::class.java))
     }
 }

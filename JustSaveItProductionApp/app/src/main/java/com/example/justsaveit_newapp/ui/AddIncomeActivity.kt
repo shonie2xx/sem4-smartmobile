@@ -27,12 +27,11 @@ class AddIncomeActivity : AppCompatActivity() {
         yearMonthtb.text = yearMonth
 
         add()
-
         savingsSpinner()
     }
 
     //edit box to Double
-    fun EditText.getDouble(): Double = try {
+    private fun EditText.getDouble(): Double = try {
         text.toString().toDouble()
     } catch (e: NumberFormatException) {
         e.printStackTrace()
@@ -48,7 +47,6 @@ class AddIncomeActivity : AppCompatActivity() {
                 savings = percentageAmount
 
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
