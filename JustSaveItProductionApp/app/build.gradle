@@ -53,4 +53,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.4'
 
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    //Chart library
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // Play Services to get Location of Device=
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
 }

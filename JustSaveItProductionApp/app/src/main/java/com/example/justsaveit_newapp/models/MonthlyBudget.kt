@@ -7,5 +7,4 @@ class MonthlyBudget(
         var balance: Double,
         var income: Double,
         var savings: Double,
-//        var expense:Expense
         )

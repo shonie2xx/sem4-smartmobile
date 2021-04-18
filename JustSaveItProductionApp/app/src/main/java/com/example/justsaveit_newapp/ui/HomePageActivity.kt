@@ -1,155 +1,194 @@
 package com.example.justsaveit_newapp.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 
 class HomePageActivity : AppCompatActivity() {
-   private lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     var selectedDate: String? = null
 
-//    val textViewContent: TextView = findViewById(R.id.tbSelected)
+    private lateinit var incomeFetch: TextView
+    private lateinit var savingsFetch: TextView
+    private lateinit var balanceFetch: TextView
+    private lateinit var clothingExpense: TextView
+    private lateinit var houseExpense: TextView
+    private lateinit var phoneExpense: TextView
+    private lateinit var vehicleExpense: TextView
+    private lateinit var groceriesExpense: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
         auth = FirebaseAuth.getInstance()
+
+        incomeFetch = findViewById(R.id.tbIncomeFetch)
+        savingsFetch = findViewById(R.id.tbSavingsFetch)
+        balanceFetch = findViewById(R.id.tbBalanceFetch)
+        clothingExpense = findViewById(R.id.txtClothing)
+        houseExpense = findViewById(R.id.txtHouse)
+        phoneExpense = findViewById(R.id.txtPhone)
+        vehicleExpense = findViewById(R.id.txtVehicle)
+        groceriesExpense = findViewById(R.id.txtGrocery)
+
         spinnerMonthDate()
         addIncome()
         addExpense()
+
     }
 
-    private fun addIncome(){
-        val toIncome: Button = findViewById(R.id.btnToIncomePage)
+    private fun addIncome() {
+        val toIncome: FloatingActionButton = findViewById(R.id.btnToIncomePage)
 
-        toIncome.setOnClickListener{
-            val intent = Intent(this, AddIncomeActivity::class.java).apply{
-                putExtra("year_month",selectedDate)
+        toIncome.setOnClickListener {
+            val intent = Intent(this, AddIncomeActivity::class.java).apply {
+                putExtra("year_month", selectedDate)
             }
             startActivity(intent)
         }
     }
 
-    private fun addExpense(){
-        val toExpense: Button = findViewById(R.id.btnToExpenseActivity)
-        toExpense.setOnClickListener{
-            val intent = Intent(this,AddExpenseActivity::class.java).apply{
-                putExtra("year_month",selectedDate)
+    private fun addExpense() {
+        val toExpense: FloatingActionButton = findViewById(R.id.btnToExpenseActivity)
+        toExpense.setOnClickListener {
+            val intent = Intent(this, AddExpenseActivity::class.java).apply {
+                putExtra("year_month", selectedDate)
             }
             startActivity(intent)
         }
     }
-    private fun spinnerMonthDate(){
-        val query = FireStoreClass().getAllMonthlyBudgetName(this,auth.currentUser!!.uid)
-        query.addOnSuccessListener() { list->
+
+    private fun spinnerMonthDate() {
+        val query = FireStoreClass().getAllMonthlyBudgetName(this, auth.currentUser!!.uid)
+        query.addOnSuccessListener() { list ->
             val months = ArrayList<String>()
-            for(doc in list)
+            for (doc in list)
                 months.add(doc.id)
 
             val spinner: Spinner = findViewById(R.id.spinner)
 
-            val adapter = ArrayAdapter(applicationContext,android.R.layout.simple_spinner_item,months)
+            val adapter = ArrayAdapter(applicationContext, android.R.layout.simple_spinner_item, months)
 
             val spinnerResult: TextView = findViewById(R.id.tbSelected)
 
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
 
-            spinner.onItemSelectedListener = object:
-                AdapterView.OnItemSelectedListener{
+            spinner.onItemSelectedListener = object :
+                    AdapterView.OnItemSelectedListener {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     spinnerResult.text = "nothing selected"
                 }
+
                 override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View?,
-                    position: Int,
-                    id: Long
+                        parent: AdapterView<*>,
+                        view: View?,
+                        position: Int,
+                        id: Long
                 ) {
                     spinnerResult.text = parent.getItemAtPosition(position).toString()
                     selectedDate = spinnerResult.text.toString()
                     fetchData()
+
                 }
             }
         }
 
     }
 
-    private fun fetchData(){
-        val incomeFetch: TextView = findViewById(R.id.tbIncomeFetch)
-        val savingsFetch: TextView = findViewById(R.id.tbSavingsFetch)
-        val balanceFetch: TextView = findViewById(R.id.tbBalanceFetch)
+    private fun fetchData() {
 
-        val docRef = FireStoreClass().getBudget(this,auth.currentUser.uid,selectedDate!!)
-        docRef.addOnSuccessListener(){ document ->
-            if(document != null){
+        val docRef = FireStoreClass().getBudget(this, auth.currentUser.uid, selectedDate!!)
+        docRef.addOnSuccessListener() { document ->
+            if (document != null) {
                 incomeFetch.text = document.getDouble("income").toString()
                 savingsFetch.text = document.getDouble("savings").toString()
                 balanceFetch.text = document.getDouble("balance").toString()
-            }
-            else{
+            } else {
                 Log.d("no exist", "no data")
             }
-        }.addOnFailureListener{ exception ->
+        }.addOnFailureListener { exception ->
+            Log.d("errordb", "fail reading from db", exception)
+        }
+        val docRef2 = FireStoreClass().getExpenses(AddExpenseActivity(), auth.currentUser.uid, selectedDate!!)
+        docRef2.addOnSuccessListener() { document ->
+            if (document != null) {
+                for (item in document) {
+                    if (item.id == "CLOTHING") {
+                        clothingExpense.text = item["amount"].toString()
+                    }
+                    if (item.id == "HOUSE") {
+                        houseExpense.text = item["amount"].toString()
+                    }
+                    if (item.id == "PHONE") {
+                        phoneExpense.text = item["amount"].toString()
+                    }
+                    if (item.id == "VEHICLE") {
+                        vehicleExpense.text = item["amount"].toString()
+                    }
+                    if (item.id == "GROCERIES") {
+                        groceriesExpense.text = item["amount"].toString()
+                    }
+                    pieChart()
+                }
+            } else {
+                Log.d("no exist", "no data")
+            }
+        }.addOnFailureListener { exception ->
             Log.d("errordb", "fail reading from db", exception)
         }
     }
 
-//    private fun getmonthDate(monthlybudgetsList: List<MonthlyBudget>): List<String> {
-//        val result = ArrayList<String>()
-//
-//        for (item in monthlybudgetsList){
-//            result.add(item.date.toString())
-//        }
-//        return result
-//    }
+    private fun pieChart(){
+        // Back Button on ActionBar
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        // PieChart
+        val pieChart = findViewById<PieChart>(R.id.pieChart)
+        val spend = ArrayList<PieEntry>()
 
+        if(clothingExpense.text != null)
+        spend.add(PieEntry(clothingExpense.text.toString().toFloat(), "Clothing"))
+        if(houseExpense.text!=null)
+        spend.add(PieEntry(houseExpense.text.toString().toFloat(), "House"))
+        if(phoneExpense.text!=null)
+        spend.add(PieEntry(phoneExpense.text.toString().toFloat(), "Phone"))
+        if(vehicleExpense.text!=null)
+        spend.add(PieEntry(vehicleExpense.text.toString().toFloat(), "Vehicle"))
+        if(groceriesExpense.text!=null)
+        spend.add(PieEntry(groceriesExpense.text.toString().toFloat(), "Groceries"))
 
-//    fun fetchBudget(user: FirebaseUser)
-//    {
-//        // call viewmodelUSER
-//        userService.getMonthlyBudget(user)
-//    }
-//fetching data??
+        val pieDataSet = PieDataSet(spend,"")
 
+        pieDataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
+        pieDataSet.valueTextColor = Color.WHITE
+        pieDataSet.valueTextSize = 12f
 
-//    fun exercise() {
-//        val month: TextView = findViewById(R.id.textView4)
-//
-////        val current_month = HomePageActivity?.getPreferences(Context.MODE_PRIVATE) ?: returnwith (current_month.edit()) {
-////            putString(getString(R.string.current_month), LocalDate.now().month)    apply()
-//    }
-//
-//    fun addIncome(string: Text) {
-//        //get the stuff from textbox
-//
-//        //setonclicklistener (add value from tb to db)
-//
-//        //default value
-//    }
-//
-//    fun getIncome(time: LocalDateTime, currentUser: FirebaseUser) {
-//
-//    }
-//
-//    fun getTime()
-//    {
-//
-//    }
-//
-//    fun tbCurrentMonth(){
-//        //default value = Localdate.currentMonth
-//
-//        //current user, we get the months as a list
-//
-//        //dropdown menu with all months of the year consisting some income, expenses
-//
-//    }
+        val pieData = PieData(pieDataSet)
+
+        pieChart.data = pieData
+        pieChart.description.isEnabled = false
+        pieChart.centerText = "Spends (€)"
+        pieChart.setCenterTextColor(Color.DKGRAY)
+        pieChart.animate()
+    }
+
 }
+

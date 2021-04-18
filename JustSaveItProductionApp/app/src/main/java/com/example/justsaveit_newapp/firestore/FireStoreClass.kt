@@ -17,6 +17,7 @@ class FireStoreClass {
     fun registerUser(activity: RegisterActivity,userInfo: User){
         mFireStore.collection("users")
                 .document(userInfo.id)
+
                 // set options.merge -> if you want to merge later, if you want to replace a null value or change a current value
                 .set(userInfo, SetOptions.merge())
                 .addOnSuccessListener{
@@ -51,7 +52,7 @@ class FireStoreClass {
                 }
     }
 
-    fun getExpenses(activity:AddExpenseActivity,userId: String,budgetDate: String) : Task<QuerySnapshot> {
+    fun getExpenses(activity: AddExpenseActivity,userId: String,budgetDate: String) : Task<QuerySnapshot> {
         return mFireStore.collection("users").document(userId).collection("monthlybudgets")
             .document(budgetDate).collection("expenses").get()
     }

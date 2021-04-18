@@ -85,25 +85,31 @@ class RegisterActivity : AppCompatActivity() {
                         //Default expenses
                         val expenseGroceries = Expense(
                                 ExpenseCategory.GROCERIES,
-                                0.0,
                                 0.0
                         )
-                        val expensePets = Expense(
-                                ExpenseCategory.PETS,
-                                0.0,
+                        val expenseClothing= Expense(
+                                ExpenseCategory.CLOTHING,
                                 0.0
                         )
-                        val expenseHome = Expense(
-                                ExpenseCategory.HOME,
-                                0.0,
+                        val expenseHouse = Expense(
+                                ExpenseCategory.HOUSE,
                                 0.0
                         )
-
+                        val expensePhone = Expense(
+                                ExpenseCategory.PHONE,
+                                0.0
+                        )
+                        val expenseVehicle = Expense(
+                                ExpenseCategory.VEHICLE,
+                                0.0
+                        )
                         FireStoreClass().registerUser(this,user)
                         FireStoreClass().addFirstMonthlyBudget(this,user,budget)
                         FireStoreClass().addExpense(this,expenseGroceries,user.id,budget.date.toString())
-                        FireStoreClass().addExpense(this,expensePets,user.id,budget.date.toString())
-                        FireStoreClass().addExpense(this,expenseHome,user.id,budget.date.toString())
+                        FireStoreClass().addExpense(this,expenseClothing,user.id,budget.date.toString())
+                        FireStoreClass().addExpense(this,expensePhone,user.id,budget.date.toString())
+                        FireStoreClass().addExpense(this,expenseVehicle,user.id,budget.date.toString())
+                        FireStoreClass().addExpense(this,expenseHouse,user.id,budget.date.toString())
 
                         startActivity(Intent(this, LoginActivity::class.java))
 

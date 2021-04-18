@@ -13,6 +13,7 @@ class AddExpenseActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     var yearMonth: String? = null
     var categorySelected: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
@@ -31,20 +32,18 @@ class AddExpenseActivity : AppCompatActivity() {
         0.0
     }
 
-    fun addAmount(){
+    private fun addAmount(){
         val btnAdd : Button = findViewById(R.id.btnAddExpenseAmount)
         btnAdd.setOnClickListener{
             val amountBox: EditText = findViewById(R.id.expenseAmount)
 
             val amount = amountBox.getDouble()
-           // Log.d("SAVINGS",savings.toString())
-            //Log.d("year_month::",yearMonth.toString())
             FireStoreClass().editExpense(this,auth.currentUser.uid,yearMonth.toString(),categorySelected.toString(),amount)
     }
     }
 
-    fun spinnerExpenseCategories(){
-        yearMonth?.let { FireStoreClass().getExpenses(this, auth.currentUser.uid, it) }
+    private fun spinnerExpenseCategories(){
+        yearMonth?.let { FireStoreClass().getExpenses( this,auth.currentUser.uid, it) }
             ?.addOnSuccessListener (){ list->
                 val categories = ArrayList<String>()
                 for(item in list)
@@ -53,8 +52,6 @@ class AddExpenseActivity : AppCompatActivity() {
                 val spinner: Spinner = findViewById(R.id.spinnerExpenseCategory)
 
                 val adapter = ArrayAdapter(applicationContext,android.R.layout.simple_spinner_item,categories)
-
-//                val spinnerResult: TextView = findViewById(R.id.tbSelected)
 
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.adapter = adapter
