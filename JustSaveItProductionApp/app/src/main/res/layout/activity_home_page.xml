@@ -137,9 +137,9 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="401dp"
-        android:layout_height="219dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="369dp"
+        android:layout_height="214dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbSelected" />
@@ -148,7 +148,7 @@
         android:id="@+id/txtBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         android:text="Balance:"
@@ -161,7 +161,7 @@
         android:id="@+id/btnToIncomePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
@@ -171,10 +171,23 @@
         app:srcCompat="@drawable/plus_48x48" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:backgroundTint="#C6C6C6"
+        app:layout_constraintBottom_toTopOf="@+id/pieChart"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:srcCompat="@drawable/icon_month" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnToExpenseActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:clickable="true"
         app:backgroundTint="#BA1010"
         app:layout_constraintEnd_toStartOf="@+id/textView9"
@@ -203,7 +216,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:srcCompat="@drawable/grocery_48x48" />
+        app:srcCompat="@drawable/grocery_color_48x48" />
 
     <TextView
         android:id="@+id/textView7"
@@ -226,7 +239,7 @@
         android:background="@drawable/bg_vehicle"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-        app:srcCompat="@drawable/vehicle_48x48" />
+        app:srcCompat="@drawable/vehicle_color_48x48" />
 
     <TextView
         android:id="@+id/textView12"
@@ -265,13 +278,13 @@
         android:id="@+id/imageButton4"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/bg_clothing"
         app:layout_constraintEnd_toStartOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/tbBalanceFetch"
-        app:srcCompat="@drawable/shopping_48x48" />
+        app:srcCompat="@drawable/shopping_color_48x48" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -279,22 +292,22 @@
         android:layout_height="100dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_phone"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/tbBalanceFetch"
-        app:srcCompat="@drawable/phone_48x48" />
+        app:srcCompat="@drawable/phone_color_48x48" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_house"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbBalanceFetch"
-        app:srcCompat="@drawable/home_48x48" />
+        app:srcCompat="@drawable/home_color_48x48" />
 
     <TextView
         android:id="@+id/txtClothing"
@@ -409,27 +422,13 @@
         app:layout_constraintStart_toStartOf="@+id/imageButton3"
         app:layout_constraintTop_toTopOf="@+id/imageButton3" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddMonth"
-        android:layout_width="35dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:tint="#C5C5C5"
-        app:layout_constraintBottom_toTopOf="@+id/pieChart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
-        app:layout_constraintStart_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plus_48x48" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:text="Add Month"
         android:textSize="8sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btnAddMonth"
         app:layout_constraintStart_toStartOf="@+id/btnAddMonth"
         app:layout_constraintTop_toBottomOf="@+id/btnAddMonth" />
