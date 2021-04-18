@@ -428,7 +428,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="Add New Month"
+        android:text="Add Month"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="@+id/btnAddMonth"
         app:layout_constraintStart_toStartOf="@+id/btnAddMonth"
