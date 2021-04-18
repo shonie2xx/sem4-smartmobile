@@ -7,7 +7,6 @@
     tools:context=".ui.HomePageActivity">
 
 
-
     <TextView
         android:id="@+id/tbBalanceFetch"
         android:layout_width="wrap_content"
@@ -17,18 +16,7 @@
         app:layout_constraintStart_toStartOf="@+id/txtBalance"
         app:layout_constraintTop_toBottomOf="@+id/txtBalance" />
 
-    <TextView
-        android:id="@+id/textViewSavingsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="10dp"
-        android:text="Savings :"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pieChart" />
 
-   
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="68dp"
@@ -53,29 +41,42 @@
         android:id="@+id/textViewIncomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
         android:text="Income :"
-        app:layout_constraintEnd_toEndOf="@+id/pieChart"
-        app:layout_constraintTop_toTopOf="@+id/pieChart" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tbIncomeFetch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:text="INCOME"
         app:layout_constraintStart_toStartOf="@+id/textViewIncomeTitle"
         app:layout_constraintTop_toBottomOf="@+id/textViewIncomeTitle" />
+
+
+    <TextView
+        android:id="@+id/textViewSavingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Savings :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tbSavingsFetch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:text="SAVINGS"
         app:layout_constraintStart_toStartOf="@+id/textViewSavingsTitle"
         app:layout_constraintTop_toBottomOf="@+id/textViewSavingsTitle" />
-
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
@@ -103,37 +104,29 @@
         android:id="@+id/btnToIncomePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
         android:clickable="true"
         app:backgroundTint="#1FA108"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/txtBalance"
         app:layout_constraintTop_toBottomOf="@+id/pieChart"
         app:srcCompat="@drawable/plus_48x48" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddMonth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="15dp"
-        android:clickable="true"
-        app:backgroundTint="#C6C6C6"
-        app:layout_constraintBottom_toTopOf="@+id/pieChart"
-        app:layout_constraintStart_toEndOf="@+id/spinner"
-        app:srcCompat="@drawable/icon_month" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnToExpenseActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="5dp"
         android:clickable="true"
         app:backgroundTint="#BA1010"
-        app:layout_constraintEnd_toStartOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        app:layout_constraintEnd_toStartOf="@+id/txtBalance"
         app:layout_constraintTop_toBottomOf="@+id/pieChart"
         app:srcCompat="@drawable/min_48x48" />
 
@@ -363,17 +356,6 @@
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="@+id/imageButton3"
         app:layout_constraintTop_toTopOf="@+id/imageButton3" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Month"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddMonth"
-        app:layout_constraintStart_toStartOf="@+id/btnAddMonth"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddMonth" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

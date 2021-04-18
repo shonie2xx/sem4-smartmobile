@@ -12,7 +12,6 @@
     <string name="regEmail">email</string>
     <string name="loginpass">password</string>
     <string name="loginEmail">email</string>
-    <string name="current_month">Month</string>
 
     <string-array name="savings_percantage">
         <item>0</item>
@@ -37,6 +36,7 @@
         <item>95</item>
         <item>100</item>
     </string-array>
+    <!-- Strings used for fragments for navigation -->
 
-
+    <string name="save">Save Location</string>
 </resources>

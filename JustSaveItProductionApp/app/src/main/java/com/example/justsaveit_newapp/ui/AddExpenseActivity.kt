@@ -9,6 +9,7 @@ import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
 import com.google.firebase.auth.FirebaseAuth
 
+
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     var yearMonth: String? = null
@@ -22,6 +23,7 @@ class AddExpenseActivity : AppCompatActivity() {
 
         spinnerExpenseCategories()
         addAmount()
+        addGeo()
     }
 
     //edit box to Double
@@ -31,7 +33,12 @@ class AddExpenseActivity : AppCompatActivity() {
         e.printStackTrace()
         0.0
     }
-
+    private fun addGeo(){
+        val btnGoGeo: Button = findViewById(R.id.btnSaveGeolocation)
+      btnGoGeo.setOnClickListener{
+          startActivity(Intent(applicationContext, MapsActivity::class.java))
+      }
+    }
     private fun addAmount(){
         val btnAdd : Button = findViewById(R.id.btnAddExpenseAmount)
         btnAdd.setOnClickListener{
