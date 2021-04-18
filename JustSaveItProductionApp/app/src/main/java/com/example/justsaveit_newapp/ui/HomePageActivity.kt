@@ -2,13 +2,12 @@ package com.example.justsaveit_newapp.ui
 
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.justsaveit_newapp.R
 import com.example.justsaveit_newapp.firestore.FireStoreClass
@@ -33,6 +32,7 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var vehicleExpense: TextView
     private lateinit var groceriesExpense: TextView
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
@@ -53,6 +53,14 @@ class HomePageActivity : AppCompatActivity() {
 
     }
 
+//    @RequiresApi(Build.VERSION_CODES.O)
+//    private fun addMonthlyBudget(){
+//        val add: FloatingActionButton = findViewById(R.id.btnAddMonth)
+//
+//        add.setOnClickListener{
+//            FireStoreClass().addNextMonthlyBudget(auth.currentUser.uid)
+//        }
+//    }
     private fun addIncome() {
         val toIncome: FloatingActionButton = findViewById(R.id.btnToIncomePage)
 
@@ -106,7 +114,6 @@ class HomePageActivity : AppCompatActivity() {
                     spinnerResult.text = parent.getItemAtPosition(position).toString()
                     selectedDate = spinnerResult.text.toString()
                     fetchData()
-
                 }
             }
         }
@@ -146,34 +153,31 @@ class HomePageActivity : AppCompatActivity() {
                     if (item.id == "GROCERIES") {
                         groceriesExpense.text = item["amount"].toString()
                     }
-                    pieChart()
                 }
+                pieChart()
             } else {
                 Log.d("no exist", "no data")
             }
+
         }.addOnFailureListener { exception ->
             Log.d("errordb", "fail reading from db", exception)
         }
     }
 
     private fun pieChart(){
-        // Back Button on ActionBar
-//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-        // PieChart
         val pieChart = findViewById<PieChart>(R.id.pieChart)
         val spend = ArrayList<PieEntry>()
-
+        Log.d("clothing is : ",clothingExpense.text.toString())
         if(clothingExpense.text != null)
-        spend.add(PieEntry(clothingExpense.text.toString().toFloat(), "Clothing"))
+            spend.add(PieEntry(clothingExpense.text.toString().toFloat(), "Clothing"))
         if(houseExpense.text!=null)
-        spend.add(PieEntry(houseExpense.text.toString().toFloat(), "House"))
+            spend.add(PieEntry(houseExpense.text.toString().toFloat(), "House"))
         if(phoneExpense.text!=null)
-        spend.add(PieEntry(phoneExpense.text.toString().toFloat(), "Phone"))
+            spend.add(PieEntry(phoneExpense.text.toString().toFloat(), "Phone"))
         if(vehicleExpense.text!=null)
-        spend.add(PieEntry(vehicleExpense.text.toString().toFloat(), "Vehicle"))
+            spend.add(PieEntry(vehicleExpense.text.toString().toFloat(), "Vehicle"))
         if(groceriesExpense.text!=null)
-        spend.add(PieEntry(groceriesExpense.text.toString().toFloat(), "Groceries"))
+            spend.add(PieEntry(groceriesExpense.text.toString().toFloat(), "Groceries"))
 
         val pieDataSet = PieDataSet(spend,"")
 
@@ -190,5 +194,12 @@ class HomePageActivity : AppCompatActivity() {
         pieChart.animate()
     }
 
+    fun success(){
+        Toast.makeText(baseContext,"Succesfull", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, HomePageActivity::class.java))
+    }
+    fun failure(){
+        Toast.makeText(baseContext,"Failed", Toast.LENGTH_SHORT).show()
+    }
 }
 

@@ -6,35 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomePageActivity">
 
-    <!--    <Button-->
-    <!--        android:id="@+id/btnToIncomePage"-->
-    <!--        android:layout_width="142dp"-->
-    <!--        android:layout_height="52dp"-->
-    <!--        android:layout_marginStart="137dp"-->
-    <!--        android:layout_marginLeft="137dp"-->
-    <!--        android:layout_marginTop="40dp"-->
-    <!--        android:layout_marginEnd="132dp"-->
-    <!--        android:layout_marginRight="132dp"-->
-    <!--        android:text="Add income"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/tbSelected" />-->
 
-    <!--    <Button-->
-    <!--        android:id="@+id/btnAddMonthlyBudget"-->
-    <!--        android:layout_width="44dp"-->
-    <!--        android:layout_height="48dp"-->
-    <!--        android:layout_marginTop="46dp"-->
-    <!--        android:layout_marginEnd="44dp"-->
-    <!--        android:layout_marginRight="44dp"-->
-    <!--        android:layout_marginBottom="648dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="+"-->
-    <!--        android:textSize="14sp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/tbBalanceFetch"
@@ -56,37 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/pieChart" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/btnToExpenseActivity"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="137dp"-->
-    <!--        android:layout_marginLeft="137dp"-->
-    <!--        android:layout_marginTop="111dp"-->
-    <!--        android:layout_marginEnd="138dp"-->
-    <!--        android:layout_marginRight="138dp"-->
-    <!--        android:layout_marginBottom="261dp"-->
-    <!--        android:text="Add expense"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/textViewBalanceTitle" />-->
-
-    //UFUK DESIGN
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView4"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="April"-->
-    <!--        android:textSize="18sp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
+   
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="68dp"

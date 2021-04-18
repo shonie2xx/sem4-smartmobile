@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import java.time.YearMonth
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -67,7 +68,6 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-
                         val firebaseUser: FirebaseUser = task.result!!.user!!
 
                         val user = User(
@@ -103,13 +103,15 @@ class RegisterActivity : AppCompatActivity() {
                                 ExpenseCategory.VEHICLE,
                                 0.0
                         )
+
                         FireStoreClass().registerUser(this,user)
-                        FireStoreClass().addFirstMonthlyBudget(this,user,budget)
-                        FireStoreClass().addExpense(this,expenseGroceries,user.id,budget.date.toString())
-                        FireStoreClass().addExpense(this,expenseClothing,user.id,budget.date.toString())
-                        FireStoreClass().addExpense(this,expensePhone,user.id,budget.date.toString())
-                        FireStoreClass().addExpense(this,expenseVehicle,user.id,budget.date.toString())
-                        FireStoreClass().addExpense(this,expenseHouse,user.id,budget.date.toString())
+                        FireStoreClass().addMonthlyBudget(this,user.id,budget) // CHANGE user-> userid
+
+                        FireStoreClass().addExpense(this,expenseGroceries,user.id,budget)
+                        FireStoreClass().addExpense(this,expenseClothing,user.id,budget)
+                        FireStoreClass().addExpense(this,expensePhone,user.id,budget)
+                        FireStoreClass().addExpense(this,expenseVehicle,user.id,budget)
+                        FireStoreClass().addExpense(this,expenseHouse,user.id,budget)
 
                         startActivity(Intent(this, LoginActivity::class.java))
 
