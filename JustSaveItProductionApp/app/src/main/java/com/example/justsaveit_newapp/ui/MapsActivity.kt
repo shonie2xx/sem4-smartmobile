@@ -1,6 +1,6 @@
 package com.example.justsaveit_newapp.ui
 
-import android.app.AlertDialog
+import android.app.*
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.location.Location
@@ -27,10 +27,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
-
-
     private lateinit var spinner: Spinner
-
     private lateinit var mMap: GoogleMap
 
     // Varibales
@@ -69,7 +66,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+                .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         // Requesting RunTime Permission
@@ -116,9 +113,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 val latLng = LatLng(latitude, longitude)
                 val markerOptions = MarkerOptions()
-                    .position(latLng)
-                    .title("Your Position")
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                        .position(latLng)
+                        .title("Your Position")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                 mMarker = mMap.addMarker(markerOptions)
 
                 //Moving the Camera
