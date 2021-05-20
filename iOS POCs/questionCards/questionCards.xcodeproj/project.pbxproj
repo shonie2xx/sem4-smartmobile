@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F67D4799265691BB00AB89CB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F67D4798265691BB00AB89CB /* FirebaseAuth */; };
+		F67D479B265691BB00AB89CB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F67D479A265691BB00AB89CB /* FirebaseFirestore */; };
+		F67D479D265691BB00AB89CB /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F67D479C265691BB00AB89CB /* FirebaseFirestoreSwift-Beta */; };
 		F6C0277926564128004A994A /* questionCardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0277826564128004A994A /* questionCardsApp.swift */; };
 		F6C0277B26564128004A994A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C0277A26564128004A994A /* ContentView.swift */; };
 		F6C0277D2656412A004A994A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C0277C2656412A004A994A /* Assets.xcassets */; };
@@ -27,12 +30,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F67D479D265691BB00AB89CB /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				F67D4799265691BB00AB89CB /* FirebaseAuth in Frameworks */,
+				F67D479B265691BB00AB89CB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F67D479E2656925600AB89CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F6C0276C26564128004A994A = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +65,7 @@
 		F6C0277726564128004A994A /* questionCards */ = {
 			isa = PBXGroup;
 			children = (
+				F67D479E2656925600AB89CB /* Model */,
 				F6C0277826564128004A994A /* questionCardsApp.swift */,
 				F6C0277A26564128004A994A /* ContentView.swift */,
 				F6C0277C2656412A004A994A /* Assets.xcassets */,
@@ -85,6 +99,11 @@
 			dependencies = (
 			);
 			name = questionCards;
+			packageProductDependencies = (
+				F67D4798265691BB00AB89CB /* FirebaseAuth */,
+				F67D479A265691BB00AB89CB /* FirebaseFirestore */,
+				F67D479C265691BB00AB89CB /* FirebaseFirestoreSwift-Beta */,
+			);
 			productName = questionCards;
 			productReference = F6C0277526564128004A994A /* questionCards.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +131,9 @@
 				Base,
 			);
 			mainGroup = F6C0276C26564128004A994A;
+			packageReferences = (
+				F67D4797265691BB00AB89CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F6C0277626564128004A994A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,6 +350,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F67D4797265691BB00AB89CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F67D4798265691BB00AB89CB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F67D4797265691BB00AB89CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F67D479A265691BB00AB89CB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F67D4797265691BB00AB89CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F67D479C265691BB00AB89CB /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F67D4797265691BB00AB89CB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F6C0276D26564128004A994A /* Project object */;
 }
