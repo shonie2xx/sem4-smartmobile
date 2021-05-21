@@ -35,8 +35,4 @@ class SignInViewController: UIViewController {
         }
         
     }
-    
-    @IBAction func forgotPassButton_Tapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "forgotPassSegue", sender: nil)
-    }
 }
