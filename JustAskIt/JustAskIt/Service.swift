@@ -7,10 +7,12 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseFirestore
 
 class Service {
     
-    static func signUpUser(email: String, password: String, name: String, onSuccess: @escaping () -> Void, onError: @escaping (_ error: Error?) -> Void) {
+    static func signUpUser(email: String, password: String, name: String, job: String, about: String, contact: String, industry: String, onSuccess: @escaping () -> Void, onError: @escaping (_ error: Error?) -> Void) {
         let auth = Auth.auth()
         
         auth.createUser(withEmail: email, password: password) { (authResult, error) in
@@ -19,19 +21,23 @@ class Service {
                 return
             }
             
-            uploadToDatabase(email: email, name: name, onSuccess: onSuccess)
+            uploadToDatabase(email: email, name: name, job: job, about: about, contact : contact, industry : industry, onSuccess: onSuccess)
         }
     }
     
-    static func uploadToDatabase(email: String, name: String, onSuccess: @escaping () -> Void) {
-        let ref = Database.database().reference()
+    static func uploadToDatabase(email: String, name: String, job: String, about: String, contact: String, industry : String, onSuccess: @escaping () -> Void) {
         let uid = Auth.auth().currentUser?.uid
+        let database = Firestore.firestore()
         
-        ref.child("users").child(uid!).setValue(["email" : email, "name" : name])
+        database.collection("users").document(uid!).setData(["name" : name, "email" : email, "job" : job, "about" : about, "contact" : contact, "industry" : industry]) { (error) in
+            if error != nil{
+            }
+        }
         onSuccess()
     }
     
-    static func getUserInfo(onSuccess: @escaping () -> Void, onError: @escaping (_ error: Error?) -> Void) {
+    
+    static func getUserInfoHome(onSuccess: @escaping () -> Void, onError: @escaping (_ error: Error?) -> Void) {
         let ref = Database.database().reference()
         let defaults = UserDefaults.standard
         

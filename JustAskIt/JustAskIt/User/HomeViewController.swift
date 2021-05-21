@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
         
         let defaults = UserDefaults.standard
         
-        Service.getUserInfo(onSuccess: {
+        Service.getUserInfoHome(onSuccess: {
             self.welcomeInLabel.text = "Welcome in \(defaults.string(forKey: "userNameKey")!)"
         }) { (error) in
             self.present(Service.createAlertController(title: "Error", message: error!.localizedDescription), animated: true, completion: nil)
