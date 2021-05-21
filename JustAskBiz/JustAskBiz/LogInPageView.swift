@@ -13,8 +13,12 @@ struct LogInPageView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var oldUser = false
+    
+    @ObservedObject var viewModel = AuthViewModel()
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        
         
         NavigationView {
             VStack (spacing: 30){
@@ -41,22 +45,21 @@ struct LogInPageView: View {
                 
                 
                 Button(action: {
-                        if(oldUser){
-                            handleSignIn()
-                        }else {
-                            handleSignUp()
-                        }
-                        handleSignIn()}, label: {
-                            Text(oldUser ? "Sign Up" : "Sign In")
-                        })
+                    if(oldUser){
+                        viewModel.signIn(email: email, password: password)
+                    }else {
+                        viewModel.signUp(email: email, password: password)
+                    }
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text(oldUser ? "Sign Up" : "Sign In")
+                })
                 Button(action: {oldUser.toggle()}, label: {
                     Text(oldUser ? "Already have an account?" : "Dont have an account?")
                 })
                 Spacer()
             }.navigationTitle(oldUser ? "Sign Up" : "Sign In")
         }
-        
-        
         
     }
 }
@@ -65,6 +68,7 @@ func handleSignIn() {
     // loginViewModel.signIN (email, password)
     
     //Presentation mode change
+    
 }
 
 func handleSignUp() {
@@ -73,6 +77,7 @@ func handleSignUp() {
     
     //Presentation mode change
 }
+
 
 
 struct LogInPageView_Previews: PreviewProvider {
