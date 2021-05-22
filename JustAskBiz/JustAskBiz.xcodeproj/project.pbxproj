@@ -22,6 +22,9 @@
 		F6B9B6712657CDBE00702E15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B9B6702657CDBE00702E15 /* Preview Assets.xcassets */; };
 		F6B9B67C2657F37800702E15 /* ProfilePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B9B67B2657F37800702E15 /* ProfilePageView.swift */; };
 		F6B9B67E2658025100702E15 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B9B67D2658025100702E15 /* HomePageView.swift */; };
+		F6C1B0E02659372300A4D394 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0DF2659372300A4D394 /* Question.swift */; };
+		F6C1B0E22659373D00A4D394 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0E12659373D00A4D394 /* User.swift */; };
+		F6C1B0E426593A7400A4D394 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */; };
 		FB45AD89265853FD005E944B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45AD88265853FD005E944B /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +43,10 @@
 		F6B9B6722657CDBE00702E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6B9B67B2657F37800702E15 /* ProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageView.swift; sourceTree = "<group>"; };
 		F6B9B67D2658025100702E15 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		FB45AD88265853FD005E944B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		F6C1B0DF2659372300A4D394 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F6C1B0E12659373D00A4D394 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB45AD88265853FD005E944B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = "/Users/danielvaswani/Desktop/SEM4-SmartMobile-UDA/JustAskBiz/JustAskBiz/ViewModels/AuthViewModel.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		F6B9B6682657CDBC00702E15 /* JustAskBiz */ = {
 			isa = PBXGroup;
 			children = (
+				F6C1B0DE2659370D00A4D394 /* Models */,
 				FB45AD852658534F005E944B /* ViewModels */,
 				FB45AD842658531D005E944B /* Views */,
 				F6B9B66B2657CDBC00702E15 /* LogInPageView.swift */,
@@ -89,6 +96,7 @@
 				F6B9B6692657CDBC00702E15 /* JustAskBizApp.swift */,
 				F6B9B66D2657CDBE00702E15 /* Assets.xcassets */,
 				F6B9B6722657CDBE00702E15 /* Info.plist */,
+				F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */,
 				F6B9B66F2657CDBE00702E15 /* Preview Content */,
 				F6A2F092265809B4004EBFD5 /* QuestionViewModel.swift */,
 			);
@@ -103,12 +111,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F6C1B0DE2659370D00A4D394 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6C1B0DF2659372300A4D394 /* Question.swift */,
+				F6C1B0E12659373D00A4D394 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FB45AD842658531D005E944B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Views;
-			sourceTree = "<group>";
+			name = Views;
+			path = JustAskBiz/Views;
+			sourceTree = SOURCE_ROOT;
 		};
 		FB45AD852658534F005E944B /* ViewModels */ = {
 			isa = PBXGroup;
@@ -185,6 +203,7 @@
 			files = (
 				F6B9B6712657CDBE00702E15 /* Preview Assets.xcassets in Resources */,
 				F6B9B66E2657CDBE00702E15 /* Assets.xcassets in Resources */,
+				F6C1B0E426593A7400A4D394 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C1B0E22659373D00A4D394 /* User.swift in Sources */,
 				F6B9B66C2657CDBC00702E15 /* LogInPageView.swift in Sources */,
+				F6C1B0E02659372300A4D394 /* Question.swift in Sources */,
 				F6B9B67C2657F37800702E15 /* ProfilePageView.swift in Sources */,
 				F6A2F093265809B4004EBFD5 /* QuestionViewModel.swift in Sources */,
 				F6B9B67E2658025100702E15 /* HomePageView.swift in Sources */,
@@ -343,7 +364,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daniel.JustAskBiz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.JustAskBiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -365,7 +386,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daniel.JustAskBiz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.JustAskBiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
