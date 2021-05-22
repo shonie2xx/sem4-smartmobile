@@ -43,9 +43,9 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func createFirestoreUser(userId:String,email:String,name:String,followers:Int,likes:Int,title:String)
-    {
-      var user: User = User(userId: userId, email: email, name: name, followers: followers, likes: likes, title: title)
-        
-    }
+//    func createFirestoreUser(userId:String,email:String,name:String,followers:Int,likes:Int,title:String)
+//    {
+//      var user: User = User(userId: userId, email: email, name: name, followers: followers, likes: likes, title: title)
+//
+//    }
 }
