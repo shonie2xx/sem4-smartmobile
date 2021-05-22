@@ -25,6 +25,7 @@
 		F6C1B0E02659372300A4D394 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0DF2659372300A4D394 /* Question.swift */; };
 		F6C1B0E22659373D00A4D394 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0E12659373D00A4D394 /* User.swift */; };
 		F6C1B0E426593A7400A4D394 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */; };
+		F6C1B0E6265955F300A4D394 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0E5265955F300A4D394 /* ProfileViewModel.swift */; };
 		FB45AD89265853FD005E944B /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45AD88265853FD005E944B /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		F6C1B0DF2659372300A4D394 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F6C1B0E12659373D00A4D394 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F6C1B0E5265955F300A4D394 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FB45AD88265853FD005E944B /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthViewModel.swift; path = "/Users/danielvaswani/Desktop/SEM4-SmartMobile-UDA/JustAskBiz/JustAskBiz/ViewModels/AuthViewModel.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +100,6 @@
 				F6B9B6722657CDBE00702E15 /* Info.plist */,
 				F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */,
 				F6B9B66F2657CDBE00702E15 /* Preview Content */,
-				F6A2F092265809B4004EBFD5 /* QuestionViewModel.swift */,
 			);
 			path = JustAskBiz;
 			sourceTree = "<group>";
@@ -131,7 +132,9 @@
 		FB45AD852658534F005E944B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F6A2F092265809B4004EBFD5 /* QuestionViewModel.swift */,
 				FB45AD88265853FD005E944B /* AuthViewModel.swift */,
+				F6C1B0E5265955F300A4D394 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				F6B9B67C2657F37800702E15 /* ProfilePageView.swift in Sources */,
 				F6A2F093265809B4004EBFD5 /* QuestionViewModel.swift in Sources */,
 				F6B9B67E2658025100702E15 /* HomePageView.swift in Sources */,
+				F6C1B0E6265955F300A4D394 /* ProfileViewModel.swift in Sources */,
 				F6A2F08B2658051B004EBFD5 /* EditProfilePageView.swift in Sources */,
 				F6A2F08D26580634004EBFD5 /* AnswerPageView.swift in Sources */,
 				F6A2F09126580970004EBFD5 /* QuestionAddPageView.swift in Sources */,
