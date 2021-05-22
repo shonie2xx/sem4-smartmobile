@@ -24,7 +24,7 @@ struct LogInPageView: View {
             VStack (spacing: 30){
                 VStack{
                     if oldUser {
-                        TextField("Name", text : $email)
+                        TextField("Name", text : $name)
                             .padding(.horizontal, 5.0)
                             .background(Color.white)
                             .cornerRadius(3.0)
@@ -35,11 +35,13 @@ struct LogInPageView: View {
                         .background(Color.white)
                         .cornerRadius(3.0)
                         .shadow(radius: 0.5)
-                    TextField("Password", text : $password)
+                        .disableAutocorrection(true)
+                    SecureField("Password", text : $password)
                         .padding(.horizontal, 5.0)
                         .background(Color.white)
                         .cornerRadius(3.0)
                         .shadow(radius: 0.5)
+                        .disableAutocorrection(true)
                     
                 }.padding()
                 
