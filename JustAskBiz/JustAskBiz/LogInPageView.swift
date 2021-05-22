@@ -29,6 +29,7 @@ struct LogInPageView: View {
                             .background(Color.white)
                             .cornerRadius(3.0)
                             .shadow(radius: 0.5)
+                            .disableAutocorrection(true)
                     }
                     TextField("Email Address", text : $email)
                         .padding(.horizontal, 5.0)
@@ -48,9 +49,10 @@ struct LogInPageView: View {
                 
                 Button(action: {
                     if(oldUser){
-                        viewModel.signIn(email: email, password: password)
+                        viewModel.signUp(name: name, email: email, password: password)
+                        
                     }else {
-                        viewModel.signUp(email: email, password: password)
+                        viewModel.signIn(email: email, password: password)
                     }
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
