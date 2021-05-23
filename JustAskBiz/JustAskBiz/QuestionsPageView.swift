@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct QuestionsPageView: View {
+    
+    @State private var presentQuestionAddPageView = false
+    
     var body: some View {
-        VStack(alignment: .trailing){
-            QuestionsView(question : "The quick brown fox jumps over the lazy dog")
-            QuestionsView(question : "The quick brown fox jumps over the lazy dog")
-            QuestionsView(question: "The quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dog")
+        
+        NavigationView{
+            VStack(alignment:.leading){
+                ScrollView{
+                    QuestionsView(question : "The quick brown fox jumps over the lazy dog")
+                    QuestionsView(question : "The quick brown fox jumps over the lazy dog")
+                    QuestionsView(question: "The quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dog")
+                }
+            }
+            .navigationBarTitle("Questions")
+            .navigationBarItems(
+                trailing: Button(action: {
+                    presentQuestionAddPageView.toggle()
+                }, label: {
+                    Image(systemName:"plus")
+                })
+            )
+        }
+        .sheet(isPresented: $presentQuestionAddPageView){
+            QuestionAddPageView()
         }
     }
 }
@@ -20,6 +39,7 @@ struct QuestionsView : View {
     var question : String
     
     var body : some View {
+       
         ZStack{
             RoundedRectangle(cornerRadius: 10 , style:.continuous)
                 .fill(Color.white)

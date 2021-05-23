@@ -52,7 +52,10 @@ struct SearchTagView: View {
         
         HStack{
             ForEach(text, id: \.self){ item in
-                Button(action: {tagString += " \(item)"}, label: {
+                Button(action: {
+                        tagString += " \(item)"
+                    
+                }, label: {
                     Text(item)
                         .font(.caption)
                         .padding(5)

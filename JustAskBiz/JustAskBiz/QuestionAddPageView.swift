@@ -8,82 +8,80 @@
 import SwiftUI
 
 struct QuestionAddPageView: View {
-    @State private var textBody = ""
-    @State private var tags = ""
-    @State private var userId = ""
     
     @Environment(\.presentationMode) var presentationMode
     
-    //@StateObject var viewModel = QuestionViewModel()
+    @StateObject var viewModel = QuestionAddViewModel()
     
+    private var hardTags = ["Business", "Marketing", "VC","Funding"]
+    @State private var tag : String = ""
+    @State private var bodyText: String = ""
+    @State private var tagArray = [String] ()
     var body: some View {
-        
-        
         NavigationView{
-            VStack(spacing:30){
+            VStack{
                 ZStack{
-                    RoundedRectangle(cornerRadius: 10 , style:.continuous)
-                        .fill(Color.white)
-                        .shadow(radius: 4)
-                    VStack(alignment: .leading){
-                        Text("Body")
-                        
-                        //TextField("Type here...", text: $viewModel.question.bodyText)
-                        
-                        Spacer()
-                        
-                    }.padding(10)
+                RoundedRectangle(cornerRadius: 10 , style:.continuous)
+                    .fill(Color.white)
+                    .shadow(radius: 4)
+                VStack(alignment: .leading){
+                    Text("Body")
                     
-                }.frame(width: 392, height: 173, alignment: .center)
+                    TextField("Type here...", text: $bodyText)
+                    
+                    Spacer()
+                    
+                }.padding(10)
                 
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10 , style:.continuous)
-                        .fill(Color.white)
-                        .shadow(radius: 4)
-                    VStack(alignment: .leading){
-                        Text("Tags")
-                        
-                        //TextField("Type here...", text: $viewModel.question.tags)
-                        
-                        Spacer()
-                        
-                    }.padding(10)
-                    
-                }.frame(width: 392, height: 100, alignment: .center)
-
-                Spacer()
+            }.frame(width: 392, height: 173, alignment: .center)
+            
+            HStack{
+                Image(systemName: "pencil").padding()
+                VStack(alignment: .leading){
+                    Text("Tags")
+                    TextField("Enter tags", text: $tag)
+                }.padding()
+                
             }
-            .padding(.top, 50.0)
-            .navigationBarTitle("Post questions", displayMode: .inline)
-            .navigationBarItems(
-                leading:Button(action: {handleCancleTapped()}, label: {
-                    Text("Cancel")
-                }),
-                trailing: Button(action: {handleDoneTapped()}, label: {
-                    Text("Done")
-                })
-            )
+            HStack{
+                ForEach(hardTags, id: \.self){ item in
+                    Button(action: {
+                        tag += " \(item)"
+                        tagArray.append(item)
+                        
+                    }, label: {
+                        Text(item)
+                            .font(.caption)
+                            .padding(5)
+                            .background(Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.black, lineWidth: 0.5)
+                            )
+                    })
+                }
+            }
+            Button(action: {
+                viewModel.save(bodyText: bodyText, tagsArray: tagArray)
+                dismiss()
+            },label: {
+                Text("Done")
+            })
+        Spacer()
+        }
         }
     }
     
-    func handleDoneTapped() {
-        dismiss()
-        //viewModel.save()
-    }
-    func handleCancleTapped(){
-       dismiss()
-    }
+    
+    
     
     func dismiss(){
         presentationMode.wrappedValue.dismiss()
     }
-    
     
     struct QuestionAddPageView_Previews: PreviewProvider {
         static var previews: some View {
             QuestionAddPageView()
         }
     }
-    
-    
 }

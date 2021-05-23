@@ -11,12 +11,18 @@ import FirebaseFirestoreSwift
 public struct Question : Identifiable, Codable {
     @DocumentID public var id: String? = UUID().uuidString
     var userId: String
+    var date: Date
+    var tags: [String]
     var bodyText: String
-    var tags: String
+    var totalAnswerLikes: Int
+    var answers:[Answer]
     
     enum CodingKeys: String, CodingKey {
         case userId
         case bodyText
         case tags
+        case date
+        case totalAnswerLikes
+        case answers
     }
 }
