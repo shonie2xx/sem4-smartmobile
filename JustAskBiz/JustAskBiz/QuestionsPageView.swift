@@ -9,16 +9,18 @@ import SwiftUI
 
 struct QuestionsPageView: View {
     
+    @ObservedObject private var viewModel = QuestionListViewModel()
+    
+    
     @State private var presentQuestionAddPageView = false
+    var tags: [String]
     
     var body: some View {
         
         NavigationView{
             VStack(alignment:.leading){
                 ScrollView{
-                    QuestionsView(question : "The quick brown fox jumps over the lazy dog")
-                    QuestionsView(question : "The quick brown fox jumps over the lazy dog")
-                    QuestionsView(question: "The quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dogThe quick brown fox jumps over the lazy dog")
+                    QuestionStackView(questions: viewModel.questions)
                 }
             }
             .navigationBarTitle("Questions")
@@ -32,12 +34,28 @@ struct QuestionsPageView: View {
         }
         .sheet(isPresented: $presentQuestionAddPageView){
             QuestionAddPageView()
+                }
+        .onAppear{
+            viewModel.getQuestionsByTag(tagsArray: tags)
+        }
+    }
+}
+
+struct QuestionStackView: View{
+    var questions : [Question]
+    var body: some View{
+        VStack{
+            ForEach(questions){q in
+                QuestionsView(question: q)
+            }
         }
     }
 }
 struct QuestionsView : View {
-    var question : String
+    var question : Question
+    @ObservedObject private var profileViewModel = ProfileViewModel()
     
+     
     var body : some View {
        
         ZStack{
@@ -59,15 +77,14 @@ struct QuestionsView : View {
                             .frame(width: 60.0, height: 60.0)
                         
                         VStack {
-                            
-                            Text("John Doe")
-                            Text("Business owner")
-                            Text("25k followers")
+                            Text("\(profileViewModel.profile.name)").bold()
+                           
+                            Text("\(profileViewModel.profile.title)")
+                            Text("\(profileViewModel.profile.followers)")
                         }
                         Spacer()
                         VStack{
-                            Text("23 comments")
-                            
+                            Text("The fucking followers")
                             Text("23000 Watching")
                             Text("Watch")
                                 .padding(10)
@@ -81,13 +98,11 @@ struct QuestionsView : View {
                         RoundedRectangle(cornerRadius: 4)
                             .foregroundColor(.white)
                             .shadow(radius: 1)
-                        Text(question)
+                        Text(question.bodyText)
                     }
                     
                     Text("View answers - 10")
                         .foregroundColor(Color.blue)
-                    
-                    
                     
                 }
                 
@@ -95,12 +110,15 @@ struct QuestionsView : View {
         }
         .padding()
         .frame(width: 430, height: 300)
-        
+        .onAppear{
+            profileViewModel.fetchData(userId: question.userId)
+            print(profileViewModel.profile.name)
+        }
     }
 }
 struct QuestionsPageView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionsPageView()
+        QuestionsPageView(tags: ["Pussy"])
     }
 }
 

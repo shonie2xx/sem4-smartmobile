@@ -52,7 +52,7 @@ class AuthViewModel: ObservableObject{
     func createFirestoreUser(email:String,name:String)
     {
         let uuid : String = auth.currentUser?.uid ?? ""
-        let user: User = User(email: email, name: name, followers: 0, likes: 0, title: "")
+        let user: User = User(email: email, name: name, followers: 0, likes: 0, title: "", about: "", industry: "", profileImageUrl: "")
         
         let docRef  : DocumentReference = db.collection("Users2").document(uuid)
         

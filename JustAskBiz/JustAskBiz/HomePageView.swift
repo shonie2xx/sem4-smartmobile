@@ -9,14 +9,18 @@ import SwiftUI
 
 struct HomePageView: View {
     var body: some View {
-        ScrollView{
-            HStack {
-                Text("What is your business interest?")
-                Image(systemName: "pencil")
-                
-            }
-            CategoryView()
+        NavigationView{
+            ScrollView{
+                VStack{
+                    HStack {
+                        Text("What is your business interest?")
+                        Image(systemName: "pencil")
+                    }
+                    CategoryView()
+                }
+            }.navigationTitle("Categories")
         }
+        
         
     }
 }
@@ -28,13 +32,21 @@ struct HomePageView_Previews: PreviewProvider {
 }
 
 struct CategoryView: View {
+    let tags = ["Leadership", "Funding","Soft Skills", "Legal Issues", "Technology",
+    "Marketing", "Modernization"]
+    
     let colors = [Color.red, Color.blue, Color.green]
+    @State private var tagNumber = 0
     @State private var currentColor = 0
     var body: some View {
         VStack {
-            NavigationView {
-                Text("Hello")
-            }
+//            ForEach(0..< tags.count, id : \.self){
+//                //tag , tag + 1
+//                //tag spacer Spacer()
+//                HStack{
+//                    CircleView(text : "\(tags[$0])", color: Color.red)
+//                }
+//            }
             HStack{
                 CircleView(text : "Leadership", color: Color.red).padding([.leading, .bottom], 50.0)
                 CircleView(text : "Funding", color: Color.green)
@@ -55,10 +67,12 @@ struct CategoryView: View {
                 CircleView(text : "Marketing", color: Color.red)
                 CircleView(text : "Modernization", color: Color.green)
             }
-            
+//            HStack{
+//                Button(action:{
+//                    
+//                }, label: Text("Idi na hui blyat"))
+//            }
         }
-        
-        
     }
 }
 
@@ -69,16 +83,27 @@ struct CircleView : View {
     var color: Color
     
     var body : some View {
-        Text(text)
-            .font(.body)
-            
-            .foregroundColor(.white)
-            
-            .frame(width: 140, height: 140)
-            
-            .background(color)
-            
-            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            .padding(thepadding ? 10.0 : 30.0)
+        NavigationLink(
+            destination: QuestionsPageView(tags : [text]),
+            label: {
+//                Button(action: { /* NavigationLink Text "Categories" destination
+//                        QuestionsPageView and then tell the viewModel to update questions list*/
+//
+//                         }, label: {
+//
+//                })
+                Text(text)
+                    .font(.body)
+                    
+                    .foregroundColor(.white)
+                    
+                    .frame(width: 140, height: 140)
+                    
+                    .background(color)
+                    
+                    .clipShape(Circle())
+            })
+        
+        
     }
 }

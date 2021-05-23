@@ -25,7 +25,9 @@
 		F6C1B0E02659372300A4D394 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0DF2659372300A4D394 /* Question.swift */; };
 		F6C1B0E22659373D00A4D394 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0E12659373D00A4D394 /* User.swift */; };
 		F6C1B0E426593A7400A4D394 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */; };
-		F6C1B0E6265955F300A4D394 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1B0E5265955F300A4D394 /* ProfileViewModel.swift */; };
+		FB15F1BA265A699B00632FD5 /* QuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15F1B9265A699B00632FD5 /* QuestionListViewModel.swift */; };
+		FB15F1C5265AAEFD00632FD5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15F1C4265AAEFD00632FD5 /* ProfileViewModel.swift */; };
+		FB15F1CA265AB7E800632FD5 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15F1C9265AB7E800632FD5 /* ImagePickerViewModel.swift */; };
 		FBBAA3D026595AFE004A0C4D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBAA3CF26595AFE004A0C4D /* AuthViewModel.swift */; };
 		FBBAA3D426596DD1004A0C4D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBAA3D326596DD1004A0C4D /* Answer.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +50,9 @@
 		F6C1B0DF2659372300A4D394 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F6C1B0E12659373D00A4D394 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6C1B0E326593A7400A4D394 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F6C1B0E5265955F300A4D394 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FB15F1B9265A699B00632FD5 /* QuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewModel.swift; sourceTree = "<group>"; };
+		FB15F1C4265AAEFD00632FD5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FB15F1C9265AB7E800632FD5 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		FBBAA3CF26595AFE004A0C4D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FBBAA3D326596DD1004A0C4D /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				F6A2F092265809B4004EBFD5 /* QuestionAddViewModel.swift */,
-				F6C1B0E5265955F300A4D394 /* ProfileViewModel.swift */,
 				FBBAA3CF26595AFE004A0C4D /* AuthViewModel.swift */,
+				FB15F1B9265A699B00632FD5 /* QuestionListViewModel.swift */,
+				FB15F1C4265AAEFD00632FD5 /* ProfileViewModel.swift */,
+				FB15F1C9265AB7E800632FD5 /* ImagePickerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -226,12 +232,14 @@
 				F6B9B67C2657F37800702E15 /* ProfilePageView.swift in Sources */,
 				F6A2F093265809B4004EBFD5 /* QuestionAddViewModel.swift in Sources */,
 				F6B9B67E2658025100702E15 /* HomePageView.swift in Sources */,
-				F6C1B0E6265955F300A4D394 /* ProfileViewModel.swift in Sources */,
+				FB15F1BA265A699B00632FD5 /* QuestionListViewModel.swift in Sources */,
 				F6A2F08B2658051B004EBFD5 /* EditProfilePageView.swift in Sources */,
 				F6A2F08D26580634004EBFD5 /* AnswerPageView.swift in Sources */,
 				F6A2F09126580970004EBFD5 /* QuestionAddPageView.swift in Sources */,
+				FB15F1CA265AB7E800632FD5 /* ImagePickerViewModel.swift in Sources */,
 				FBBAA3D026595AFE004A0C4D /* AuthViewModel.swift in Sources */,
 				F6A2F08F265806EE004EBFD5 /* SearchPageView.swift in Sources */,
+				FB15F1C5265AAEFD00632FD5 /* ProfileViewModel.swift in Sources */,
 				FBBAA3D426596DD1004A0C4D /* Answer.swift in Sources */,
 				F6B9B66A2657CDBC00702E15 /* JustAskBizApp.swift in Sources */,
 				F6A2F089265804A0004EBFD5 /* QuestionsPageView.swift in Sources */,

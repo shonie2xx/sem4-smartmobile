@@ -22,7 +22,8 @@ struct LogInPageView: View {
         
         NavigationView {
             if viewModel.signedIn {
-                QuestionsPageView()
+//                QuestionsPageView(tags: ["Funding"])
+               HomePageView()
             }
             else{
                 VStack (spacing: 30){
@@ -83,21 +84,6 @@ struct LogInPageView: View {
         
     }
 }
-
-func handleSignIn() {
-    // loginViewModel.signIN (email, password)
-    
-    //Presentation mode change
-    
-}
-
-func handleSignUp() {
-    //loginViewModel.signIN (name, email, password)
-    // once signup is done, automatically sign in ----> ViewModel
-    
-    //Presentation mode change
-}
-
 
 
 struct LogInPageView_Previews: PreviewProvider {

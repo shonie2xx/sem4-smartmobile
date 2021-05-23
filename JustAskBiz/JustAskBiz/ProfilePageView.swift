@@ -6,34 +6,56 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfilePageView: View {
+    
+    @ObservedObject var profileViewModel = ProfileViewModel()
+    
+    @State var showActionSheet = false
+    @State var showImagePicker = false
+    @State var userId = Auth.auth().currentUser!.uid
+    @State var sourceType:UIImagePickerController.SourceType = .camera
+    
+    @State var image:UIImage?
+    
     var body: some View {
+        
         NavigationView {
             VStack(spacing: 15){
+                if image != nil {
+                    Image(uiImage: image!)
+                        .renderingMode(.original)
+                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 60.0, height: 60.0)
+                } else {
+                    Image(systemName: "person.circle")
+                        .renderingMode(.original)
+                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 60.0, height: 60.0)
+                }
                 
-                Image(systemName : "pencil")
-                    .renderingMode(.original)
-                    .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 60.0, height: 60.0)
-                Text("Simon Mayorov")
-                Text("Young Business Owner")
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("Edit profile")
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                    
-                })
+                Text(profileViewModel.profile.name)
+                Text(profileViewModel.profile.title)
+                
+                NavigationLink(
+                    destination: EditProfilePageView(),
+                    label: {
+                        Text("Edit Profile")
+                    })
+                
                 Divider()
-                InfoCardView(titleText: "About me", descText: "The quick brown fox jumps over the lazy dog diuwhiuhweiuhdiueuehfiwuhfhewiu")
-                InfoCardView(titleText: "Industry", descText: "The quick brown fox jumps over the lazy dog diuwhiuhweiuhdiueuehfiwuhfhewiu ")
-                InfoCardView(titleText: "Contact", descText: "The quick brown fox jumps over the lazy dog diuwhiuhweiuhdiueuehfiwuhfhewiu ")
+                InfoCardView(titleText: "About me", descText: profileViewModel.profile.about)
+                InfoCardView(titleText: "Industry", descText: profileViewModel.profile.industry)
+                InfoCardView(titleText: "Contact", descText: profileViewModel.profile.email)
                 Spacer()
             }
             .navigationTitle("Profile")
+            .onAppear() {
+                self.profileViewModel.fetchData(userId: userId)
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
