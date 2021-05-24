@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6694435265BBAF900C74BD5 /* AnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6694434265BBAF900C74BD5 /* AnswerViewModel.swift */; };
 		F699FCEB265B941800F621C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F699FCEA265B941800F621C4 /* FirebaseStorage */; };
 		F699FCED265B941800F621C4 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = F699FCEC265B941800F621C4 /* FirebaseStorageSwift-Beta */; };
 		F6A2F089265804A0004EBFD5 /* QuestionsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A2F088265804A0004EBFD5 /* QuestionsPageView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F6694434265BBAF900C74BD5 /* AnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewModel.swift; sourceTree = "<group>"; };
 		F6A2F088265804A0004EBFD5 /* QuestionsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsPageView.swift; sourceTree = "<group>"; };
 		F6A2F08A2658051B004EBFD5 /* EditProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePageView.swift; sourceTree = "<group>"; };
 		F6A2F08C26580634004EBFD5 /* AnswerPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPageView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				FB15F1B9265A699B00632FD5 /* QuestionListViewModel.swift */,
 				FB15F1C4265AAEFD00632FD5 /* ProfileViewModel.swift */,
 				FB15F1C9265AB7E800632FD5 /* ImagePickerViewModel.swift */,
+				F6694434265BBAF900C74BD5 /* AnswerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				F6B9B67C2657F37800702E15 /* ProfilePageView.swift in Sources */,
 				F6A2F093265809B4004EBFD5 /* QuestionAddViewModel.swift in Sources */,
 				F6B9B67E2658025100702E15 /* HomePageView.swift in Sources */,
+				F6694435265BBAF900C74BD5 /* AnswerViewModel.swift in Sources */,
 				FB15F1BA265A699B00632FD5 /* QuestionListViewModel.swift in Sources */,
 				F6A2F08B2658051B004EBFD5 /* EditProfilePageView.swift in Sources */,
 				F6A2F08D26580634004EBFD5 /* AnswerPageView.swift in Sources */,

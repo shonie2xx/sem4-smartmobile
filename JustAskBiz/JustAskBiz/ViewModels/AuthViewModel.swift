@@ -30,7 +30,7 @@ class AuthViewModel: ObservableObject{
             // success
             // Open new view
             DispatchQueue.main.async {
-                self?.signedIn = true
+                self?.signedIn = false
             }
         }
     }

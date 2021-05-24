@@ -8,14 +8,15 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-public struct Question : Identifiable, Codable {
+public struct Question : Identifiable, Codable{
+ 
     @DocumentID public var id: String? = UUID().uuidString
     var userId: String
     var date: Date
     var tags: [String]
     var bodyText: String
     var totalAnswerLikes: Int
-    var answers:[Answer]
+    var answers: [Answer]
     
     enum CodingKeys: String, CodingKey {
         case userId

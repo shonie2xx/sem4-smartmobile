@@ -22,6 +22,7 @@ struct QuestionsPageView: View {
                 ScrollView{
                     QuestionStackView(questions: viewModel.questions)
                 }.navigationBarTitle("Questions")
+                .navigationTitle("Questions")
                 .navigationBarItems(
                     trailing: Button(action: {
                         presentQuestionAddPageView.toggle()
@@ -66,7 +67,7 @@ struct QuestionsView : View {
                 HStack{
                     Text("New Question")
                     Spacer()
-                    Text("13 May")
+                    Text(question.date, formatter: realDateFormatter())
                 }.font(.caption)
                 VStack{
                     HStack{
@@ -84,8 +85,8 @@ struct QuestionsView : View {
                         }
                         Spacer()
                         VStack{
-                            Text("The fucking followers")
-                            Text("23000 Watching")
+                            Text("Total likes:")
+                            Text("\(question.totalAnswerLikes)")
                             Text("Watch")
                                 .padding(10)
                                 
@@ -102,9 +103,11 @@ struct QuestionsView : View {
                             .shadow(radius: 1)
                         Text(question.bodyText)
                     }
-                    
-                    Text("View answers - 10")
-                        .foregroundColor(Color.blue)
+                    NavigationLink(destination: AnswerPageView(question: question)){
+                        Text("View answers - \(question.answers.count)")
+                            .foregroundColor(Color.blue)
+                    }
+                   
                     
                 }.font(.subheadline)
                 
