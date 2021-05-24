@@ -14,11 +14,14 @@ struct AnswerPageView: View {
 }
 struct AnswerView: View {
     @State private var postComment = ""
+    //var question: [Question]
     var body: some View {
-        NavigationView {
+        VStack {
+            
+        
             ScrollView{
                 Text("This is the question")
-                TagView(text : ["tag1","tag2","tag3","tag4"])
+                TagView(tags : ["tag1","tag2","tag3","tag4"])
                 HStack(alignment: .top){
                     VStack{
                         Text("Asked by:")
@@ -43,49 +46,56 @@ struct AnswerView: View {
                 AnswerCardView()
                 AnswerCardView()
                 //AnswerCardView(answers : viewModel.answers)
-                Spacer()
-                HStack(spacing : 10){
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 30)
-                            
-                            .foregroundColor(.white)
-                            .shadow(radius: 5)
-                        
-                        TextField("Sample text", text : $postComment).padding()
-                    }
-                    .frame(height: 40)
-                    
-                    
-                    Button(action: {}, label: {
-                        Text("Post").padding(15).background(Color.blue).foregroundColor(Color.white).clipShape(RoundedRectangle(cornerRadius: 30))
-                        
-                    })
-                }.padding()
+                
+                
                 
             }
             .navigationBarTitle("Question")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button("Back"){})
+            
+            
+            HStack(spacing : 10){
+                ZStack{
+                    RoundedRectangle(cornerRadius: 30)
+                        
+                        .foregroundColor(.white)
+                        .shadow(radius: 5)
+                    
+                    TextField("Sample text", text : $postComment).padding()
+                }
+                .frame(height: 40)
+                
+                
+                Button(action: {}, label: {
+                    Text("Post").padding(15).background(Color.blue).foregroundColor(Color.white).clipShape(RoundedRectangle(cornerRadius: 30))
+                    
+                })
+                
+                
+            }.edgesIgnoringSafeArea(.bottom)
+            .padding()
         }
     }
 }
 
 struct TagView: View {
-    var text : [String]
+    var tags : [String]
     var body : some View {
+        ScrollView(.horizontal){
         HStack{
-            ForEach(text, id: \.self){ item in
+            ForEach(tags, id: \.self){ item in
                 Text(item)
                     .font(.caption)
                     .padding(5)
                     .background(Color.white)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.black, lineWidth: 0.5)
+                            .stroke(Color.black, lineWidth: 1)
                     )
             }
         }
-        
+        }.padding(.horizontal, 10)
     }
 }
 

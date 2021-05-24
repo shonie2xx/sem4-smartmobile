@@ -35,11 +35,11 @@ struct CategoryView: View {
     let tags = ["Leadership", "Funding","Soft Skills", "Legal Issues", "Technology",
     "Marketing", "Modernization"]
     
-    let colors = [Color.red, Color.blue, Color.green]
+    let colors = [Color.red, Color.blue, Color.green, Color.yellow]
     @State private var tagNumber = 0
     @State private var currentColor = 0
     var body: some View {
-        VStack {
+        VStack (spacing: 20){
 //            ForEach(0..< tags.count, id : \.self){
 //                //tag , tag + 1
 //                //tag spacer Spacer()
@@ -47,32 +47,34 @@ struct CategoryView: View {
 //                    CircleView(text : "\(tags[$0])", color: Color.red)
 //                }
 //            }
-            HStack{
-                CircleView(text : "Leadership", color: Color.red).padding([.leading, .bottom], 50.0)
+            HStack(spacing: 25){
+                CircleView(text : "Leadership", color: Color.red).padding([.leading, .bottom], 25.0)
                 CircleView(text : "Funding", color: Color.green)
+                    .padding(.top, 20.0)
             }
-            HStack{
+            HStack(spacing: 25){
                 CircleView(text : "Soft Skills", color : Color.blue)
-                    .padding([.top, .trailing], 34.0)
-                    
-                CircleView(text : "Leadership", color: Color.red)
+                    .padding([.top, .trailing], 20.0)
+                   
             }
             
             
-            HStack{
-                CircleView(text : "Legal Issues", color: Color.green)
-                CircleView(text : "Technology", color : Color.blue)
+            
+            HStack(spacing: 25){
+                CircleView(text : "Legal Issues", color: Color.red)
+                    .padding([.top, .trailing], 20.0)
+                CircleView(text : "Technology", color : Color.green)
             }
-            HStack{
-                CircleView(text : "Marketing", color: Color.red)
-                CircleView(text : "Modernization", color: Color.green)
+            HStack(spacing: 25){
+                CircleView(text : "Marketing", color: Color.blue)
+                    .padding(.bottom)
+                CircleView(text : "Modernization", color: Color.red)
+                    .padding([.top, .leading], 25.0)
             }
-//            HStack{
-//                Button(action:{
-//                    
-//                }, label: Text("Idi na hui blyat"))
-//            }
-        }
+            
+        }.padding()
+        
+        
     }
 }
 

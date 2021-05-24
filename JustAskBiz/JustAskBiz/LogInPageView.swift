@@ -20,7 +20,7 @@ struct LogInPageView: View {
     
     var body: some View {
         
-        NavigationView {
+       
             if viewModel.signedIn {
 //                QuestionsPageView(tags: ["Funding"])
                HomePageView()
@@ -80,7 +80,7 @@ struct LogInPageView: View {
                     viewModel.signedIn = viewModel.isSignedIn
                 }
             }
-        }
+        
         
     }
 }

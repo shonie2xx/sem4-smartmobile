@@ -17,21 +17,21 @@ struct QuestionsPageView: View {
     
     var body: some View {
         
-        NavigationView{
+        
             VStack(alignment:.leading){
                 ScrollView{
                     QuestionStackView(questions: viewModel.questions)
-                }
+                }.navigationBarTitle("Questions")
+                .navigationBarItems(
+                    trailing: Button(action: {
+                        presentQuestionAddPageView.toggle()
+                    }, label: {
+                        Image(systemName:"plus")
+                    })
+                )
             }
-            .navigationBarTitle("Questions")
-            .navigationBarItems(
-                trailing: Button(action: {
-                    presentQuestionAddPageView.toggle()
-                }, label: {
-                    Image(systemName:"plus")
-                })
-            )
-        }
+            
+        
         .sheet(isPresented: $presentQuestionAddPageView){
             QuestionAddPageView()
                 }
@@ -67,7 +67,7 @@ struct QuestionsView : View {
                     Text("New Question")
                     Spacer()
                     Text("13 May")
-                }
+                }.font(.caption)
                 VStack{
                     HStack{
                         Image(systemName: "pencil")
@@ -93,7 +93,9 @@ struct QuestionsView : View {
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .foregroundColor(.white)
                         }
+                        
                     }
+                    TagView(tags: question.tags)
                     ZStack{
                         RoundedRectangle(cornerRadius: 4)
                             .foregroundColor(.white)
@@ -104,7 +106,7 @@ struct QuestionsView : View {
                     Text("View answers - 10")
                         .foregroundColor(Color.blue)
                     
-                }
+                }.font(.subheadline)
                 
             }.padding(10)
         }
@@ -118,7 +120,7 @@ struct QuestionsView : View {
 }
 struct QuestionsPageView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionsPageView(tags: ["Pussy"])
+        QuestionsPageView(tags: ["Marketing"])
     }
 }
 
