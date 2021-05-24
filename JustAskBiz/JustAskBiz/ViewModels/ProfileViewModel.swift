@@ -51,22 +51,25 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func updateData(id: String, txt: String) {
-
+    func updateProfile(id: String, name: String, title: String, email: String, about: String, profileImageUrl: String) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User not found")
             return
         }
-
+        
         let refDoc = database.collection("Users2").document(uid)
         refDoc.getDocument{ (document, err) in
             _ = Result {
-
                 try document?.data(as: User.self)
             }
         }
-
-        database.document(id).updateData(["testText":txt]) { (err) in
+        database.document(id).updateData([
+            name : name,
+            title : title,
+            email : email,
+            about : about,
+            profileImageUrl : profileImageUrl
+        ]) { (err) in
             if err != nil {
                 print((err?.localizedDescription)!)
                 return

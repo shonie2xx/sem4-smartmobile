@@ -25,16 +25,30 @@ struct ProfilePageView: View {
             VStack(spacing: 15){
                 if image != nil {
                     Image(uiImage: image!)
-                        .renderingMode(.original)
-                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 60.0, height: 60.0)
+                        .clipShape(Circle())
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .padding(15)
+                    
+//                        .renderingMode(.original)
+//                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 60.0, height: 60.0)
                 } else {
                     Image(systemName: "person.circle")
-                        .renderingMode(.original)
-                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 60.0, height: 60.0)
+                        .clipShape(Circle())
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .padding(15)
+                    
+//                        .renderingMode(.original)
+//                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 60.0, height: 60.0)
                 }
                 
                 Text(profileViewModel.profile.name)
