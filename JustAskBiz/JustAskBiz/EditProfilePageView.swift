@@ -7,6 +7,8 @@
 
 import SwiftUI
 import FirebaseAuth
+import Firebase
+import FirebaseStorageSwift
 
 struct EditProfilePageView: View {
     
