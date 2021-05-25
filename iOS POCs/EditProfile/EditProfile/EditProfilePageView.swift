@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-import FirebaseAuth
 
 struct EditProfilePageView: View {
-    @EnvironmentObject var viewModel : ProfileViewModel
+    @EnvironmentObject viewModel = ProfileViewModel()
     var body: some View {
         VStack{
             ImagePickerView()
@@ -95,8 +94,6 @@ struct ImagePickerView : View {
 }
 
 struct EditFormView : View {
-    
-    @StateObject var viewModel = ProfileViewModel()
     @State private var fullName = ""
     @State private var title = ""
     @State private var about = "Tell us about yourself"
@@ -117,18 +114,17 @@ struct EditFormView : View {
             
             Spacer()
             Button(action: {
-                viewModel.updateProfile(id : Auth.auth().currentUser!.uid, name: fullName, title: title, about: about)
+                //viewModel.save(name : fullName, title: title, about: about)
             }, label: {
                 Text("Done")
             })
-        }.environmentObject(viewModel)
+        }
         
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfilePageView()
+        ContentView()
     }
 }
-

@@ -17,7 +17,7 @@ struct User : Identifiable, Codable {
     var title: String
     var about : String
     var industry: String
-    var profileImageUrl : String
+    var profileImageUrl : String?
     
     enum CodingKeys: String, CodingKey{
         case email

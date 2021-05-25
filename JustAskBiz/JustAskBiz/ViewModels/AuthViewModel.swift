@@ -30,12 +30,12 @@ class AuthViewModel: ObservableObject{
             // success
             // Open new view
             DispatchQueue.main.async {
-                self?.signedIn = false
+                self?.signedIn = true
             }
         }
     }
     
-    func signUp(name: String , email: String, password: String) {
+    func signUp(name: String , email: String, password: String, about : String, title : String) {
         auth.createUser(withEmail: email,
                         password: password) { result, error in
             guard result != nil, error == nil else {
@@ -43,19 +43,17 @@ class AuthViewModel: ObservableObject{
             }
             // success
             //create user document in firestore
-            DispatchQueue.main.async {
-                self.signedIn = false
-            }
-            self.createFirestoreUser(email: email, name: name)
+            
+            self.createFirestoreUser(email: email, name: name, about : about , title: title)
             self.signIn(email: email, password: password)
             
         }
     }
     
-    func createFirestoreUser(email:String,name:String)
+    func createFirestoreUser(email:String,name:String , about : String, title : String)
     {
         let uuid : String = auth.currentUser?.uid ?? ""
-        let user: User = User(email: email, name: name, followers: 0, likes: 0, title: "", about: "", industry: "", profileImageUrl: "")
+        let user: User = User(email: email, name: name, followers: 0, likes: 0, title: title ,  about: about, industry: "", profileImageUrl: "")
         
         let docRef  : DocumentReference = db.collection("Users2").document(uuid)
         

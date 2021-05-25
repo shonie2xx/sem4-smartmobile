@@ -52,24 +52,38 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func updateProfile(id: String, name: String, title: String, email: String, about: String, profileImageUrl: String) {
+    func updateProfile(id : String , name: String, title: String, about: String) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User not found")
             return
         }
+        print(id)
+        let refDoc = database.collection("Users2").document(id)
         
-        let refDoc = database.collection("Users2").document(uid)
         refDoc.getDocument{ (document, err) in
-            _ = Result {
+            let user = Result {
                 try document?.data(as: User.self)
             }
+            switch user {
+                case .success(let user):
+                    if let user = user {
+                        print("User: \(user)")
+                    } else {
+                        // A nil value was successfully initialized from the DocumentSnapshot,
+                        // or the DocumentSnapshot was nil.
+                        print("Document does not exist")
+                    }
+                case .failure(let error):
+                    // A `City` value could not be initialized from the DocumentSnapshot.
+                    print("Error decoding city: \(error)")
+                }
         }
-        database.document(id).updateData([
-            name : name,
-            title : title,
-            email : email,
-            about : about,
-            profileImageUrl : profileImageUrl
+        
+        database.document(id)
+            .updateData([
+            "name" : name,
+            "title" : title,
+            "about" : about,
         ]) { (err) in
             if err != nil {
                 print((err?.localizedDescription)!)
