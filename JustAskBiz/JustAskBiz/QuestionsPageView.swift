@@ -16,7 +16,6 @@ struct QuestionsPageView: View {
     
     var body: some View {
         
-        
             VStack(alignment:.leading){
                 ScrollView{
                     QuestionStackView(questions: viewModel.questions)

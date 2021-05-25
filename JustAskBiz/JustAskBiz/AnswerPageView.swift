@@ -15,6 +15,7 @@ struct AnswerPageView: View {
     @ObservedObject var aViewModel = AnswerViewModel()
     
     var question : Question
+    
     var body: some View {
         VStack { // VStack for all elements on page
             ScrollView{ // ScrollView containing questioninfo and answer stack view (Answer array -> view)
@@ -46,7 +47,7 @@ struct QuestionInfoView: View {
                 VStack{
                     Text("Asked by:")
                     HStack{
-                        Image("profilepic")
+                        Image(systemName: "person.fill.questionmark")
                         VStack{
                             Text("\(askedViewModel.profile.name)")
                             Text("\(askedViewModel.profile.title)")

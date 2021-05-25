@@ -53,7 +53,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func updateProfile(id : String , name: String, title: String, about: String) {
-        guard let uid = Auth.auth().currentUser?.uid else {
+        guard (Auth.auth().currentUser?.uid) != nil else {
             print("User not found")
             return
         }

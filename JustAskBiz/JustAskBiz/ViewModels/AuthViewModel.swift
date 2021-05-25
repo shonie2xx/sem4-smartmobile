@@ -43,7 +43,6 @@ class AuthViewModel: ObservableObject{
             }
             // success
             //create user document in firestore
-            
             self.createFirestoreUser(email: email, name: name, about : about , title: title)
             self.signIn(email: email, password: password)
             
@@ -65,14 +64,10 @@ class AuthViewModel: ObservableObject{
         
     }
     
-    func logout(){
-        do{
-           try auth.signOut()
-           
+    func signOut(){
+            try? auth.signOut()
+            
+            self.signedIn = false
         }
-        catch{
-            print(error)
-        }
-    }
 
 }

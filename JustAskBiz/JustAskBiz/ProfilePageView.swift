@@ -53,8 +53,7 @@ struct ProfilePageView: View {
                 InfoCardView(titleText: "Contact", descText: profileViewModel.profile.email)
                 Spacer()
                 Button(action: {
-                    AuthViewModel.init().signedIn = false
-                    LogInPageView()
+                    AuthViewModel.init().signOut()
                 }, label: {
                     Text("Logout")
                 })

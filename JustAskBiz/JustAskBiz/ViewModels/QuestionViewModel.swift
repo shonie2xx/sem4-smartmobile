@@ -23,7 +23,7 @@ class QuestionViewModel:ObservableObject {
     
     func fetchData(){
         //get all questions
-        db.collection("questionsNew").addSnapshotListener { ( querySnapshot, Error) in
+        db.collection("questionFinal").addSnapshotListener { ( querySnapshot, Error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -47,7 +47,7 @@ class QuestionViewModel:ObservableObject {
     {
            
         var ref: DocumentReference? = nil
-        ref = db.collection("questionsNew").addDocument(data: [
+        ref = db.collection("questionFinal").addDocument(data: [
             "userId": question.userId,
             "date": question.date,
             "tags":question.tags,
@@ -59,7 +59,7 @@ class QuestionViewModel:ObservableObject {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
-                self.db.collection("questionsNew").document(ref!.documentID).updateData([
+                self.db.collection("questionFinal").document(ref!.documentID).updateData([
                     "documentId":ref!.documentID
                 ])
             }
@@ -71,7 +71,7 @@ class QuestionViewModel:ObservableObject {
     func getQuestionsByTag(tagsArray:[String])
     {
         for item in tagsArray {
-            db.collection("questionsNew").whereField("tags",arrayContains:item).addSnapshotListener{ (querySnapshot, Error) in
+            db.collection("questionFinal").whereField("tags",arrayContains:item).addSnapshotListener{ (querySnapshot, Error) in
                 guard let documents = querySnapshot?.documents else{
                     print("Not found")
                     return
@@ -84,9 +84,8 @@ class QuestionViewModel:ObservableObject {
                     let tags = data["tags"] as? [String]
                     let date = data["date"] as! Timestamp
                     let totalAnswerLikes = data["totalAnswerLikes"] as? Int
-                    
-                    
                     let documentId = data["documentId"] as? String
+                    
                     return Question(userId: userId!, date: date.dateValue(), tags: tags!, bodyText: bodyText!, totalAnswerLikes: totalAnswerLikes!, documentId: documentId ?? "null")
                 }
             }

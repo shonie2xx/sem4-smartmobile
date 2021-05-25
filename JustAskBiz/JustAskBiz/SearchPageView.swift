@@ -15,13 +15,11 @@ struct SearchPageView: View {
 struct SearchView: View {
     @State var tagString : String = ""
     
-    func handleButtonTap(){
-        
-    }
     var body: some View {
         NavigationView{
             VStack{
-                SearchTagView(text : ["Business","Marketing","VC","Funding"])
+                SearchTagView(text : ["Leadership", "Funding","Soft Skills", "Legal Issues", "Technology",
+                                      "Marketing", "Modernization"])
             }
             .navigationTitle("Search").navigationBarTitleDisplayMode(.inline)
             .toolbar(content: {

@@ -13,7 +13,8 @@ struct QuestionAddPageView: View {
     
     @ObservedObject var viewModel = QuestionViewModel()
     
-    private var hardTags = ["Business", "Marketing", "VC","Funding"]
+    private var hardTags = ["Leadership", "Funding","Soft Skills", "Legal Issues", "Technology",
+                            "Marketing", "Modernization"]
     
     @State private var tag : String = ""
     @State private var bodyText: String = ""
@@ -44,24 +45,27 @@ struct QuestionAddPageView: View {
                 }.padding()
                 
             }
-            HStack{
-                ForEach(hardTags, id: \.self){ item in
-                    Button(action: {
-                        tag += " \(item)"
-                        tagArray.append(item)
-                        
-                    }, label: {
-                        Text(item)
-                            .font(.caption)
-                            .padding(5)
-                            .background(Color.white)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(Color.black, lineWidth: 0.5)
-                            )
-                    })
+                ScrollView(.horizontal){
+                    HStack{
+                        ForEach(hardTags, id: \.self){ item in
+                            Button(action: {
+                                tag += " \(item)"
+                                tagArray.append(item)
+                                
+                            }, label: {
+                                Text(item)
+                                    .font(.caption)
+                                    .padding(5)
+                                    .background(Color.white)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .stroke(Color.black, lineWidth: 0.5)
+                                    )
+                            })
+                        }
+                    }
                 }
-            }
+            
             Button(action: {
                 viewModel.saveNewQuestion(bodyText: bodyText, tagsArray: tagArray)
                 dismiss()
