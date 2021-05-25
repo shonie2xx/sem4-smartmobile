@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseAuth
 
 struct ProfilePageView: View {
@@ -16,13 +17,14 @@ struct ProfilePageView: View {
     @State var showImagePicker = false
     @State var userId = Auth.auth().currentUser!.uid
     @State var sourceType:UIImagePickerController.SourceType = .camera
+   
     
     @State var image:UIImage?
     
     var body: some View {
         
-        NavigationView {
-            VStack(spacing: 15){
+    
+            VStack(spacing: 20){
                 if image != nil {
                     Image(uiImage: image!)
                         .renderingMode(.original)
@@ -30,11 +32,10 @@ struct ProfilePageView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 60.0, height: 60.0)
                 } else {
-                    Image(systemName: "person.circle")
-                        .renderingMode(.original)
-                        .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 60.0, height: 60.0)
+                    Image("profilepic")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70.0, height: 70.0)
                 }
                 
                 Text(profileViewModel.profile.name)
@@ -51,24 +52,29 @@ struct ProfilePageView: View {
                 InfoCardView(titleText: "Industry", descText: profileViewModel.profile.industry)
                 InfoCardView(titleText: "Contact", descText: profileViewModel.profile.email)
                 Spacer()
+                Button(action: {
+                    AuthViewModel.init().signedIn = false
+                    LogInPageView()
+                }, label: {
+                    Text("Logout")
+                })
             }
             .navigationTitle("Profile")
             .onAppear() {
                 self.profileViewModel.fetchData(userId: userId)
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Back"){
-                        
-                    }
-                }
-            }
-            .padding()
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button("Back"){
+//                        
+//                    }
+//                }
+//            }
+//            .padding()
         }
-        
     }
-}
+
 
 struct InfoCardView : View{
     var titleText : String

@@ -11,9 +11,10 @@ struct QuestionAddPageView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var viewModel = QuestionAddViewModel()
+    @ObservedObject var viewModel = QuestionViewModel()
     
     private var hardTags = ["Business", "Marketing", "VC","Funding"]
+    
     @State private var tag : String = ""
     @State private var bodyText: String = ""
     @State private var tagArray = [String] ()
@@ -62,7 +63,7 @@ struct QuestionAddPageView: View {
                 }
             }
             Button(action: {
-                viewModel.save(bodyText: bodyText, tagsArray: tagArray)
+                viewModel.saveNewQuestion(bodyText: bodyText, tagsArray: tagArray)
                 dismiss()
             },label: {
                 Text("Done")

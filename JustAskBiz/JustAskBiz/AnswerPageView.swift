@@ -10,7 +10,10 @@ import SwiftUI
 
 struct AnswerPageView: View {
     //var question: [Question]
-    @ObservedObject var answerViewModel = AnswerViewModel()
+    @ObservedObject var qViewModel = QuestionViewModel()
+    
+    @ObservedObject var aViewModel = AnswerViewModel()
+    
     var question : Question
     var body: some View {
         VStack { // VStack for all elements on page
@@ -18,17 +21,15 @@ struct AnswerPageView: View {
                         // But NOT AnswerPostView because it should stay at the bottom at all times
                 
                 QuestionInfoView(question: self.question)
-                AnswerStackView(answers: self.answerViewModel.answers)
+                AnswerStackView(answerArray: aViewModel.getAnswers(qDocId: question.documentId))
                 
             }
             //TEST THIS
-            AnswerPostView(postViewModel : answerViewModel , questionID : question.id ?? "") //8yUKyA6oZj3NqDagWlw4
+            AnswerPostView(questionID : question.documentId) //8yUKyA6oZj3NqDagWlw4
             
         }.navigationBarTitle("Question")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(leading: Button("Back"){})
         .onAppear{
-            answerViewModel.fetchData(questionID: question.id ?? "")
         }
         
     }
@@ -45,7 +46,7 @@ struct QuestionInfoView: View {
                 VStack{
                     Text("Asked by:")
                     HStack{
-                        Image(systemName: "pencil")
+                        Image("profilepic")
                         VStack{
                             Text("\(askedViewModel.profile.name)")
                             Text("\(askedViewModel.profile.title)")
@@ -67,12 +68,6 @@ struct QuestionInfoView: View {
             //Very powerful line of code
             self.askedViewModel.fetchData(userId: self.question.userId)
         }
-        
-//                AnswerCardView()
-//                AnswerCardView()
-        //AnswerCardView(answers : viewModel.answers)
-        
-        
         
     }
 }
@@ -98,10 +93,13 @@ struct TagView: View {
 }
 
 struct AnswerStackView : View {
-    var answers : [Answer]
+     var answerArray = [Answer]()
+    
+//    var qDocId : String
+    
     var body: some View {
         VStack{
-            ForEach(answers){ a in
+            ForEach(answerArray){ a in
                 AnswerCardView(answer : a)
             }
         }
@@ -154,9 +152,13 @@ struct AnswerCardView: View {
 }
 
 struct AnswerPostView : View {
-    var postViewModel : AnswerViewModel
+    
+//    var postViewModel : QuestionViewModel
+    @ObservedObject var viewModel = AnswerViewModel()
     @State private var answerMessage = ""
+    
     var questionID : String
+    
     var body : some View {
         HStack(spacing : 10){
             ZStack{
@@ -170,13 +172,10 @@ struct AnswerPostView : View {
             
             
             Button(action: {
-                postViewModel.save(questionID: self.questionID, bodyText: answerMessage)
-                
+                viewModel.saveAnswer(qDocId: questionID, bodyText: answerMessage)
             }, label: {
                 Text("Post").padding(15).background(Color.blue).foregroundColor(Color.white).clipShape(RoundedRectangle(cornerRadius: 30))
-                
             })
-            
             
         }
         .padding()
@@ -195,12 +194,7 @@ struct AnswerPageView_Previews: PreviewProvider { // Hardcoded data to show in p
                         
                         Question(userId: "FEYmCXiKJSe1mdDRzJaTBx5oz713", date: Date(), tags: ["Business", "Marketing" ], bodyText: "Why cant I buy wiuhcweuhfewiufheiwufhefffheuhfiuhferiuhfiurhfiuerhfiu for my company?", totalAnswerLikes: 20000,
                                  
-                                 answers:
-                                    [
-                                        Answer(userId: "FEYmCXiKJSe1mdDRzJaTBx5oz713", date: Date(), bodyText: "The answer is fweufiifeiuwf", likes:0),
-                                        Answer(userId: "FEYmCXiKJSe1mdDRzJaTBx5oz713", date: Date(), bodyText: "The answer is fhdiuwhwiuefueiwfhiuewgfiwegfewyfgewyfguywgfuyegfuywegfuygeuyfgeuy", likes:20),
-                                        Answer(userId: "FEYmCXiKJSe1mdDRzJaTBx5oz713", date: Date(), bodyText: "wfewuyfguygfuyegfuygeuyfgewuyfgwefuyeuyfgeuwygwueygfuywegfuwueyfgewuyfgeuyfgfguewyfgewuyfgewuygffewuygfewuyfgewuyfguewfefwguyfewguyugyefwuyfgweguyfewguyefwfewguyefwugyfeguygfuyeguyffguyefeguygfuyeguyefwguyfeguyfeguyfe", likes:30)
-                                    ]
+                                 documentId:"qweqewewqdsasqd"
                         ))
     
     }

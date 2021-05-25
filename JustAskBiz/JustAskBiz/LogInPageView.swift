@@ -74,7 +74,7 @@ struct LogInPageView: View {
                     Button(action: {oldUser.toggle()}, label: {
                         Text(oldUser ? "Already have an account?" : "Dont have an account?")
                     })
-                    Spacer()
+//                    Spacer()
                 }.navigationTitle(oldUser ? "Sign Up" : "Sign In")
                 .onAppear{
                     viewModel.signedIn = viewModel.isSignedIn

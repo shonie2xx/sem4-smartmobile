@@ -43,6 +43,9 @@ class AuthViewModel: ObservableObject{
             }
             // success
             //create user document in firestore
+            DispatchQueue.main.async {
+                self.signedIn = false
+            }
             self.createFirestoreUser(email: email, name: name)
             self.signIn(email: email, password: password)
             
@@ -63,4 +66,15 @@ class AuthViewModel: ObservableObject{
         }
         
     }
+    
+    func logout(){
+        do{
+           try auth.signOut()
+           
+        }
+        catch{
+            print(error)
+        }
+    }
+
 }

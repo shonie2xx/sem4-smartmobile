@@ -2,59 +2,70 @@
 //  AnswerViewModel.swift
 //  JustAskBiz
 //
-//  Created by Daniel Vaswani on 24/05/2021.
+//  Created by Aleksandar Lekov on 25/05/2021.
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 import Firebase
-import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-class AnswerViewModel : ObservableObject {
-    @Published var currentAnswer = Answer(userId : "", date: Date(), bodyText: "",  likes : 0)
+class AnswerViewModel: ObservableObject{
+    
     @Published var answers = [Answer]()
     
-    let db = Firestore.firestore()
+    private var db = Firestore.firestore()
     
-    func addAnswer(questionId : String){
-        
-        do
-        {
-            let _ = try db.collection("Questions2").document(questionId).collection("answers2").addDocument(from: currentAnswer)
-        }
-        catch{
-            print(error)
-        }
-       
+    @Published var answer: Answer = Answer(userId: "", date: Date(), bodyText: "", likes: 0)
     
-    }
-    
-    func fetchData(questionID : String) {
-        db.collection("Questions2").document(questionID).collection("answers2")
-            .addSnapshotListener { ( querySnapshot, Error) in
+    func fetchData(qDocId: String)
+    {
+        db.collection("questionsNew").document(qDocId).collection("answers").addSnapshotListener{(querySnapshot, Error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
             }
-            
             self.answers = documents.map{ ( queryDocumentSnapshot) -> Answer in
                 let data = queryDocumentSnapshot.data()
                 
                 let userId = data["userId"] as? String
+                let date = data["Date"] as? Date
                 let bodyText = data["bodyText"] as? String
-                let date = data["date"] as! Timestamp
-                let likes = data["totalAnswerLikes"] as? Int
+                let likes = data["likes"] as? Int
                 
-                return Answer(userId: userId!, date: date.dateValue()  , bodyText: bodyText!,  likes : likes ?? 0 )
+                return Answer(userId: userId!, date: date ?? Date(), bodyText: bodyText!, likes: likes!)
             }
         }
     }
     
-    func save(questionID : String, bodyText : String){
-        currentAnswer.userId = Auth.auth().currentUser!.uid
-        currentAnswer.date = Date()
-        currentAnswer.bodyText = bodyText
-        print("\(questionID)")
-        addAnswer(questionId : questionID)
+    func addAnswer(qDocId:String, answer: Answer)
+    {
+        db.collection("questionsNew").document(qDocId).collection("answers")
+            .addDocument(data: [
+                "userId": answer.userId,
+                "date": answer.date,
+                "bodyText":answer.bodyText,
+                "likes":answer.likes
+            ]){err in
+                if let err = err{
+                    print("Error adding document: \(err)")
+                }else{
+                    print("Document added successfuly")
+                }
+            }
+    }
+    
+    func saveAnswer(qDocId: String,bodyText: String)
+    {
+        answer.bodyText = bodyText
+        answer.userId = Auth.auth().currentUser!.uid
+        answer.date = Date()
+        answer.likes = 0
+        addAnswer(qDocId: qDocId, answer: answer)
+    }
+    
+    func getAnswers(qDocId: String) -> [Answer] {
+        fetchData(qDocId: qDocId)
+        return answers
     }
 }

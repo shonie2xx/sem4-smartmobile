@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 
 struct Answer: Identifiable, Codable{
     @DocumentID public var id: String? = UUID().uuidString
+    
     var userId: String
     var date : Date
     var bodyText: String

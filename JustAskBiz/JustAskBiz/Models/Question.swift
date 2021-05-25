@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-public struct Question : Identifiable, Codable{
+public struct Question: Identifiable, Codable {
  
     @DocumentID public var id: String? = UUID().uuidString
     var userId: String
@@ -16,7 +16,7 @@ public struct Question : Identifiable, Codable{
     var tags: [String]
     var bodyText: String
     var totalAnswerLikes: Int
-    var answers: [Answer]
+    var documentId : String
     
     enum CodingKeys: String, CodingKey {
         case userId
@@ -24,6 +24,6 @@ public struct Question : Identifiable, Codable{
         case tags
         case date
         case totalAnswerLikes
-        case answers
+        case documentId
     }
 }

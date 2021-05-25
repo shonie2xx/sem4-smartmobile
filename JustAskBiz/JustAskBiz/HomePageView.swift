@@ -14,7 +14,11 @@ struct HomePageView: View {
                 VStack{
                     HStack {
                         Text("What is your business interest?")
-                        Image(systemName: "pencil")
+                           NavigationLink(
+                            destination: ProfilePageView(),
+                            label: {
+                                Image(systemName: "person.fill")
+                            })
                     }
                     CategoryView()
                 }

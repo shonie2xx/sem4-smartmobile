@@ -9,8 +9,7 @@ import SwiftUI
 
 struct QuestionsPageView: View {
     
-    @ObservedObject private var viewModel = QuestionListViewModel()
-    
+    @ObservedObject private var viewModel = QuestionViewModel()
     
     @State private var presentQuestionAddPageView = false
     var tags: [String]
@@ -32,7 +31,6 @@ struct QuestionsPageView: View {
                 )
             }
             
-        
         .sheet(isPresented: $presentQuestionAddPageView){
             QuestionAddPageView()
                 }
@@ -55,6 +53,7 @@ struct QuestionStackView: View{
 struct QuestionsView : View {
     var question : Question
     @ObservedObject private var profileViewModel = ProfileViewModel()
+    @ObservedObject private var aViewModel = AnswerViewModel()
     
      
     var body : some View {
@@ -71,7 +70,7 @@ struct QuestionsView : View {
                 }.font(.caption)
                 VStack{
                     HStack{
-                        Image(systemName: "pencil")
+                        Image(systemName: "person.fill.questionmark")
                             .renderingMode(.original)
                             .resizable(capInsets: EdgeInsets(top: 7.0, leading: 6.0, bottom: 8.0, trailing: 9.0), resizingMode: .tile)
                             .aspectRatio(contentMode: .fit)
@@ -104,8 +103,9 @@ struct QuestionsView : View {
                         Text(question.bodyText)
                     }
                     NavigationLink(destination: AnswerPageView(question: question)){
-                        Text("View answers - \(question.answers.count)")
-                            .foregroundColor(Color.blue)
+                        Text("View answers - ").foregroundColor(.blue)
+//                        Text("View answers - \(aViewModel.countAnswer(question.documentId))")
+//                            .foregroundColor(Color.blue)
                     }
                    
                     
